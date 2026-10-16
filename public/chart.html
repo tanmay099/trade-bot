@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NIFTY Candlestick Chart - Live</title>
+  <script src="https://unpkg.com/lightweight-charts@4.1.1/dist/lightweight-charts.standalone.production.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 100%);
+      color: #e0e0e0;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #00ff9d;
+      padding-bottom: 20px;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2em;
+      color: #00ff9d;
+      text-shadow: 0 0 20px rgba(0, 255, 157, 0.5);
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #888;
+      font-size: 0.9em;
+    }
+
+    .nav-link {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      color: #00d9ff;
+      text-decoration: none;
+      font-size: 0.9em;
+      padding: 8px 15px;
+      border: 1px solid rgba(0, 217, 255, 0.3);
+      border-radius: 5px;
+      transition: all 0.3s;
+    }
+
+    .nav-link:hover {
+      background: rgba(0, 217, 255, 0.1);
+      border-color: #00d9ff;
+      box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .info-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 255, 157, 0.3);
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .info-label {
+      color: #888;
+      font-size: 0.8em;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .info-value {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #00ff9d;
+    }
+
+    .info-value.red {
+      color: #ff6b6b;
+    }
+
+    .info-value.green {
+      color: #00ff9d;
+    }
+
+    .chart-container {
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(0, 255, 157, 0.3);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    #chart {
+      width: 100%;
+      height: 600px;
+    }
+
+    .legend {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85em;
+    }
+
+    .legend-line {
+      width: 30px;
+      height: 3px;
+      border-radius: 2px;
+    }
+
+    .legend-line.box-high {
+      background: #ff6b6b;
+    }
+
+    .legend-line.box-low {
+      background: #4ecdc4;
+    }
+
+    .legend-line.current {
+      background: #ffd93d;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .status-bar {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .status-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      font-size: 0.85em;
+      border: 1px solid rgba(0, 255, 157, 0.3);
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #888;
+    }
+
+    .status-dot.active {
+      background: #00ff9d;
+      box-shadow: 0 0 10px rgba(0, 255, 157, 0.8);
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 10px rgba(0, 255, 157, 0.8); }
+      50% { box-shadow: 0 0 20px rgba(0, 255, 157, 1); }
+    }
+
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: #888;
+    }
+
+    .error {
+      background: rgba(255, 107, 107, 0.1);
+      border: 1px solid #ff6b6b;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      color: #ff6b6b;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      #chart {
+        height: 400px;
+      }
+
+      h1 {
+        font-size: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="/" class="nav-link">← Dashboard</a>
+      <h1>📊 NIFTY 50 - Live Candlestick Chart</h1>
+      <div class="subtitle">Real-time box breakout monitoring • From 09:15 to Current</div>
+    </header>
+
+    <div id="error-message" class="error" style="display: none;"></div>
+
+    <div class="status-bar">
+      <div class="status-indicator">
+        <div class="status-dot" id="ws-status"></div>
+        <span>WebSocket</span>
+      </div>
+      <div class="status-indicator">
+        <div class="status-dot" id="data-status"></div>
+        <span>Data Feed</span>
+      </div>
+      <div class="status-indicator">
+        <div class="status-dot" id="chart-status"></div>
+        <span>Chart</span>
+      </div>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-label">Current Price</div>
+        <div class="info-value" id="current-price">--</div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">Box High</div>
+        <div class="info-value red" id="box-high">--</div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">Box Low</div>
+        <div class="info-value green" id="box-low">--</div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">Box Range</div>
+        <div class="info-value" id="box-range">--</div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">Status</div>
+        <div class="info-value" id="breakout-status">--</div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">Last Update</div>
+        <div class="info-value" id="last-update" style="font-size: 0.9em;">--</div>
+      </div>
+    </div>
+
+    <div class="chart-container">
+      <div id="chart"></div>
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-line box-high"></div>
+          <span>Box High</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-line box-low"></div>
+          <span>Box Low</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-line current"></div>
+          <span>Current Price</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Initialize chart
+    const chartElement = document.getElementById('chart');
+    const chart = LightweightCharts.createChart(chartElement, {
+      layout: {
+        background: { color: 'transparent' },
+        textColor: '#e0e0e0',
+      },
+      grid: {
+        vertLines: { color: 'rgba(255, 255, 255, 0.1)' },
+        horzLines: { color: 'rgba(255, 255, 255, 0.1)' },
+      },
+      crosshair: {
+        mode: LightweightCharts.CrosshairMode.Normal,
+      },
+      rightPriceScale: {
+        borderColor: 'rgba(197, 203, 206, 0.4)',
+      },
+      timeScale: {
+        borderColor: 'rgba(197, 203, 206, 0.4)',
+        timeVisible: true,
+        secondsVisible: false,
+      },
+    });
+
+    const candlestickSeries = chart.addCandlestickSeries({
+      upColor: '#00ff9d',
+      downColor: '#ff6b6b',
+      borderUpColor: '#00ff9d',
+      borderDownColor: '#ff6b6b',
+      wickUpColor: '#00ff9d',
+      wickDownColor: '#ff6b6b',
+    });
+
+    // Price lines for box and current price
+    let boxHighLine = null;
+    let boxLowLine = null;
+    let currentPriceLine = null;
+
+    // State
+    let currentPrice = null;
+    let boxData = null;
+    let ws = null;
+
+    // Status indicators
+    function updateStatus(id, active) {
+      const dot = document.getElementById(id);
+      if (active) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    }
+
+    // Fetch box data
+    async function fetchBox() {
+      try {
+        const response = await fetch('/box');
+        if (response.ok) {
+          boxData = await response.json();
+          updateBoxInfo();
+          drawBoxLines();
+        }
+      } catch (err) {
+        console.error('Error fetching box:', err);
+      }
+    }
+
+    // Show error message
+    function showError(message) {
+      const errorDiv = document.getElementById('error-message');
+      errorDiv.textContent = message;
+      errorDiv.style.display = 'block';
+    }
+
+    // Hide error message
+    function hideError() {
+      const errorDiv = document.getElementById('error-message');
+      errorDiv.style.display = 'none';
+    }
+
+    // Fetch candles from 9:15 to current
+    async function fetchCandles() {
+      try {
+        updateStatus('data-status', false);
+        const response = await fetch('/candles/intraday');
+
+        if (!response.ok) {
+          if (response.status === 503) {
+            throw new Error('⚠️ Please login first at http://localhost:3000/login to start fetching data');
+          }
+          throw new Error(`Failed to fetch candles: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+
+        if (data.message === 'Market not yet open') {
+          showError('⏰ Market not yet open. Chart will load after 9:15 AM.');
+          updateStatus('data-status', false);
+          updateStatus('chart-status', false);
+          return;
+        }
+
+        if (data.candles && data.candles.length > 0) {
+          hideError();
+          const formattedCandles = data.candles.map(c => ({
+            time: Math.floor(new Date(c.date).getTime() / 1000),
+            open: c.open,
+            high: c.high,
+            low: c.low,
+            close: c.close,
+          }));
+
+          candlestickSeries.setData(formattedCandles);
+          currentPrice = formattedCandles[formattedCandles.length - 1].close;
+          updateCurrentPriceInfo();
+          drawCurrentPriceLine();
+          updateStatus('data-status', true);
+          updateStatus('chart-status', true);
+        } else {
+          showError('📊 No candle data available yet. Waiting for market data...');
+        }
+      } catch (err) {
+        console.error('Error fetching candles:', err);
+        showError(err.message);
+        updateStatus('data-status', false);
+        updateStatus('chart-status', false);
+      }
+    }
+
+    // Update box info display
+    function updateBoxInfo() {
+      if (!boxData) return;
+
+      document.getElementById('box-high').textContent = `₹${boxData.boxHigh.toFixed(2)}`;
+      document.getElementById('box-low').textContent = `₹${boxData.boxLow.toFixed(2)}`;
+
+      const range = boxData.boxHigh - boxData.boxLow;
+      document.getElementById('box-range').textContent = `₹${range.toFixed(2)}`;
+
+      updateBreakoutStatus();
+    }
+
+    // Update current price info
+    function updateCurrentPriceInfo() {
+      if (currentPrice === null) return;
+
+      document.getElementById('current-price').textContent = `₹${currentPrice.toFixed(2)}`;
+      document.getElementById('last-update').textContent = new Date().toLocaleTimeString();
+
+      updateBreakoutStatus();
+    }
+
+    // Update breakout status
+    function updateBreakoutStatus() {
+      if (!boxData || currentPrice === null) {
+        document.getElementById('breakout-status').textContent = '--';
+        return;
+      }
+
+      const statusElement = document.getElementById('breakout-status');
+      if (currentPrice > boxData.boxHigh) {
+        statusElement.textContent = '🔺 ABOVE BOX';
+        statusElement.className = 'info-value red';
+      } else if (currentPrice < boxData.boxLow) {
+        statusElement.textContent = '🔻 BELOW BOX';
+        statusElement.className = 'info-value green';
+      } else {
+        statusElement.textContent = '⬌ INSIDE BOX';
+        statusElement.className = 'info-value';
+      }
+    }
+
+    // Draw box lines
+    function drawBoxLines() {
+      if (!boxData) return;
+
+      // Remove existing lines
+      if (boxHighLine) {
+        candlestickSeries.removePriceLine(boxHighLine);
+      }
+      if (boxLowLine) {
+        candlestickSeries.removePriceLine(boxLowLine);
+      }
+
+      // Add box high line
+      boxHighLine = candlestickSeries.createPriceLine({
+        price: boxData.boxHigh,
+        color: '#ff6b6b',
+        lineWidth: 2,
+        lineStyle: LightweightCharts.LineStyle.Solid,
+        axisLabelVisible: true,
+        title: 'Box High',
+      });
+
+      // Add box low line
+      boxLowLine = candlestickSeries.createPriceLine({
+        price: boxData.boxLow,
+        color: '#4ecdc4',
+        lineWidth: 2,
+        lineStyle: LightweightCharts.LineStyle.Solid,
+        axisLabelVisible: true,
+        title: 'Box Low',
+      });
+    }
+
+    // Draw current price line
+    function drawCurrentPriceLine() {
+      if (currentPrice === null) return;
+
+      // Remove existing line
+      if (currentPriceLine) {
+        candlestickSeries.removePriceLine(currentPriceLine);
+      }
+
+      // Add current price line
+      currentPriceLine = candlestickSeries.createPriceLine({
+        price: currentPrice,
+        color: '#ffd93d',
+        lineWidth: 2,
+        lineStyle: LightweightCharts.LineStyle.Dashed,
+        axisLabelVisible: true,
+        title: 'Current',
+      });
+    }
+
+    // WebSocket connection
+    function connectWebSocket() {
+      const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+      const wsUrl = `${protocol}//${window.location.host}/ws`;
+
+      ws = new WebSocket(wsUrl);
+
+      ws.onopen = () => {
+        console.log('✅ WebSocket connected');
+        updateStatus('ws-status', true);
+      };
+
+      ws.onmessage = (event) => {
+        try {
+          const message = JSON.parse(event.data);
+
+          if (message.event === 'price_update' && message.data) {
+            currentPrice = message.data.price || message.data.ltp;
+            updateCurrentPriceInfo();
+            drawCurrentPriceLine();
+
+            // Update last candle with new price
+            const now = Math.floor(Date.now() / 1000);
+            candlestickSeries.update({
+              time: now,
+              close: currentPrice,
+            });
+          }
+        } catch (err) {
+          console.error('Error processing WebSocket message:', err);
+        }
+      };
+
+      ws.onerror = (error) => {
+        console.error('WebSocket error:', error);
+        updateStatus('ws-status', false);
+      };
+
+      ws.onclose = () => {
+        console.log('WebSocket closed, reconnecting in 3s...');
+        updateStatus('ws-status', false);
+        setTimeout(connectWebSocket, 3000);
+      };
+    }
+
+    // Initialize
+    async function init() {
+      await fetchBox();
+      await fetchCandles();
+      connectWebSocket();
+
+      // Refresh data every 30 seconds
+      setInterval(fetchCandles, 30000);
+
+      // Refresh box every minute
+      setInterval(fetchBox, 60000);
+    }
+
+    // Auto-resize chart
+    window.addEventListener('resize', () => {
+      chart.applyOptions({
+        width: chartElement.clientWidth,
+        height: chartElement.clientHeight
+      });
+    });
+
+    // Start
+    init();
+  </script>
+</body>
+</html>

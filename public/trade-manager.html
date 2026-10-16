@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trade Manager - NIFTY Breakout</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg-secondary: #0f0f18;
+      --card: #12121c;
+      --border: #1a1a2e;
+      --border-light: #2a2a4e;
+      --text: #e0e0e0;
+      --muted: #888;
+      --dim: #555;
+      --green: #00ff9d;
+      --green-dim: rgba(0, 255, 157, 0.15);
+      --red: #ff6b6b;
+      --red-dim: rgba(255, 107, 107, 0.15);
+      --blue: #00d9ff;
+      --blue-dim: rgba(0, 217, 255, 0.15);
+      --yellow: #ffd93d;
+      --yellow-dim: rgba(255, 217, 61, 0.15);
+      --purple: #a855f7;
+      --purple-dim: rgba(168, 85, 247, 0.15);
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'JetBrains Mono', monospace;
+      padding: 20px;
+      line-height: 1.5;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      font-size: 28px;
+      color: var(--green);
+    }
+
+    .logo-text {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #fff;
+    }
+
+    .logo-sub {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .ws-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      background: var(--bg-secondary);
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    .ws-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--red);
+      transition: all 0.3s;
+    }
+
+    .ws-dot.connected {
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+    }
+
+    .ws-label {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    .update-time {
+      font-size: 12px;
+      color: var(--dim);
+    }
+
+    /* Main Layout */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 1024px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Cards */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .card-header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-icon {
+      font-size: 14px;
+    }
+
+    .card-title {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+    }
+
+    .card-content {
+      padding: 18px;
+    }
+
+    /* Trade Management Card */
+    .trade-manager-card {
+      grid-column: 1 / -1;
+    }
+
+    .trade-manager-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .trade-manager-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Trade Info Section */
+    .trade-info-section {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .trade-header-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .signal-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 6px;
+      letter-spacing: 2px;
+    }
+
+    .signal-badge.bull {
+      background: var(--green-dim);
+      color: var(--green);
+      border: 1px solid var(--green);
+    }
+
+    .signal-badge.bear {
+      background: var(--red-dim);
+      color: var(--red);
+      border: 1px solid var(--red);
+    }
+
+    .trade-symbol {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .trade-time {
+      font-size: 11px;
+      color: var(--dim);
+    }
+
+    .trade-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .metric-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .metric-label {
+      font-size: 9px;
+      color: var(--dim);
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .metric-value {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .metric-value.entry { color: var(--blue); }
+    .metric-value.qty { color: var(--purple); }
+    .metric-value.order { color: var(--muted); font-size: 11px; }
+
+    /* Level Controls Section */
+    .level-controls-section {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .level-control {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+    }
+
+    .level-control.sl { border-left: 3px solid var(--red); }
+    .level-control.target { border-left: 3px solid var(--green); }
+
+    .level-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .level-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+    }
+
+    .level-label.sl { color: var(--red); }
+    .level-label.target { color: var(--green); }
+
+    .level-initial {
+      font-size: 10px;
+      color: var(--dim);
+    }
+
+    .level-input-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .level-input {
+      flex: 1;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-family: inherit;
+      font-size: 18px;
+      font-weight: 600;
+      color: #fff;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .level-input:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 2px var(--blue-dim);
+    }
+
+    .level-input.sl:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 2px var(--red-dim);
+    }
+
+    .level-input.target:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 2px var(--green-dim);
+    }
+
+    .update-btn {
+      background: var(--border-light);
+      border: none;
+      border-radius: 6px;
+      padding: 10px 16px;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 1px;
+    }
+
+    .update-btn:hover {
+      background: var(--blue);
+      color: #000;
+    }
+
+    .update-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .update-btn.saving {
+      background: var(--yellow);
+      color: #000;
+    }
+
+    /* P&L Section */
+    .pnl-section {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .pnl-display {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .pnl-label {
+      font-size: 10px;
+      color: var(--dim);
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+    }
+
+    .pnl-value {
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .pnl-value.profit { color: var(--green); }
+    .pnl-value.loss { color: var(--red); }
+    .pnl-value.neutral { color: var(--muted); }
+
+    .pnl-percent {
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    .pnl-percent.profit { color: var(--green); }
+    .pnl-percent.loss { color: var(--red); }
+
+    .current-price-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .current-price-label {
+      font-size: 10px;
+      color: var(--dim);
+      letter-spacing: 1px;
+    }
+
+    .current-price-value {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--blue);
+    }
+
+    .price-change {
+      font-size: 11px;
+      margin-left: 8px;
+    }
+
+    .price-change.up { color: var(--green); }
+    .price-change.down { color: var(--red); }
+
+    /* Trade Reason Card */
+    .reason-card .card-content {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .reason-section {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+    }
+
+    .reason-section-title {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .reason-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 0;
+    }
+
+    .reason-label {
+      font-size: 11px;
+      color: var(--dim);
+    }
+
+    .reason-value {
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .reason-value.high { color: var(--green); }
+    .reason-value.low { color: var(--red); }
+    .reason-value.above { color: var(--green); }
+    .reason-value.below { color: var(--red); }
+
+    .reentry-badge {
+      font-size: 9px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 1px;
+    }
+
+    .reentry-badge.yes {
+      background: var(--yellow-dim);
+      color: var(--yellow);
+    }
+
+    .reentry-badge.no {
+      background: var(--blue-dim);
+      color: var(--blue);
+    }
+
+    /* Box Status Card */
+    .box-status-card .card-content {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .box-levels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .box-level {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .box-level-label {
+      font-size: 9px;
+      color: var(--dim);
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .box-level-value {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .box-level-value.high { color: var(--green); }
+    .box-level-value.low { color: var(--red); }
+
+    .box-breakout-status {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+    }
+
+    .breakout-indicator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .breakout-indicator.above {
+      background: var(--green-dim);
+      color: var(--green);
+      border: 1px solid var(--green);
+    }
+
+    .breakout-indicator.below {
+      background: var(--red-dim);
+      color: var(--red);
+      border: 1px solid var(--red);
+    }
+
+    .breakout-indicator.inside {
+      background: var(--yellow-dim);
+      color: var(--yellow);
+      border: 1px solid var(--yellow);
+    }
+
+    .breakout-indicator.neutral {
+      background: var(--bg-secondary);
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    .breakout-icon {
+      font-size: 16px;
+    }
+
+    /* Breakout Events */
+    .breakout-events-list {
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .breakout-event {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+
+    .breakout-event:last-child {
+      margin-bottom: 0;
+    }
+
+    .event-time {
+      font-size: 10px;
+      color: var(--dim);
+      min-width: 50px;
+    }
+
+    .event-type {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 1px;
+    }
+
+    .event-type.bull {
+      background: var(--green-dim);
+      color: var(--green);
+    }
+
+    .event-type.bear {
+      background: var(--red-dim);
+      color: var(--red);
+    }
+
+    .event-type.return {
+      background: var(--yellow-dim);
+      color: var(--yellow);
+    }
+
+    .event-price {
+      font-size: 12px;
+      color: var(--text);
+      margin-left: auto;
+    }
+
+    /* Modification History */
+    .modifications-list {
+      max-height: 150px;
+      overflow-y: auto;
+    }
+
+    .modification-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      background: var(--bg);
+      border-radius: 6px;
+      margin-bottom: 6px;
+      font-size: 11px;
+    }
+
+    .modification-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .mod-time {
+      color: var(--dim);
+      min-width: 50px;
+    }
+
+    .mod-field {
+      font-weight: 600;
+      min-width: 50px;
+    }
+
+    .mod-field.sl { color: var(--red); }
+    .mod-field.target { color: var(--green); }
+
+    .mod-arrow {
+      color: var(--dim);
+    }
+
+    .mod-old {
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+
+    .mod-new {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .mod-source {
+      font-size: 9px;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-left: auto;
+    }
+
+    .mod-source.manual {
+      background: var(--purple-dim);
+      color: var(--purple);
+    }
+
+    .mod-source.trailing {
+      background: var(--blue-dim);
+      color: var(--blue);
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--dim);
+    }
+
+    .empty-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+      opacity: 0.3;
+    }
+
+    .empty-text {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .empty-sub {
+      font-size: 11px;
+      color: var(--dim);
+    }
+
+    /* Notification Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      padding: 14px 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast.success {
+      border-left: 3px solid var(--green);
+    }
+
+    .toast.error {
+      border-left: 3px solid var(--red);
+    }
+
+    .toast-icon {
+      font-size: 18px;
+    }
+
+    .toast-text {
+      font-size: 12px;
+    }
+
+    /* Sidebar Grid */
+    .sidebar-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Footer */
+    .footer {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      font-size: 10px;
+      color: var(--dim);
+      padding: 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 24px;
+    }
+
+    .footer a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Animations */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .loading {
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes flash {
+      0%, 100% { background: var(--bg); }
+      50% { background: var(--green-dim); }
+    }
+
+    .price-flash {
+      animation: flash 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">◈</span>
+        <div>
+          <div class="logo-text">TRADE MANAGER</div>
+          <div class="logo-sub">NIFTY BREAKOUT SYSTEM</div>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="ws-status">
+          <span class="ws-dot" id="wsStatus"></span>
+          <span class="ws-label">LIVE</span>
+        </div>
+        <span class="update-time" id="updateTime">--:--:--</span>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div id="mainContent">
+      <div class="empty-state">
+        <div class="empty-icon">◇</div>
+        <div class="empty-text loading">Connecting to server...</div>
+        <div class="empty-sub">Waiting for trade data</div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span>Real-time WebSocket Updates</span>
+      <span>|</span>
+      <a href="/">Dashboard</a>
+      <span>|</span>
+      <span id="connectionInfo">Disconnected</span>
+    </footer>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <span class="toast-icon" id="toastIcon"></span>
+    <span class="toast-text" id="toastText"></span>
+  </div>
+
+  <script>
+    // State
+    let currentTrade = null;
+    let boxData = null;
+    let currentPrice = null;
+    let breakoutEvents = [];
+    let ws = null;
+    let reconnectAttempts = 0;
+    const maxReconnectAttempts = 10;
+
+    // Format helpers
+    const formatPrice = (price) => price != null ? `${Number(price).toFixed(2)}` : '--';
+    const formatTime = (date) => new Date(date).toLocaleTimeString('en-IN', { hour12: false });
+    const formatShortTime = (str) => str?.slice(0, 5) || '--';
+
+    // Show toast notification
+    function showToast(message, type = 'success') {
+      const toast = document.getElementById('toast');
+      const icon = document.getElementById('toastIcon');
+      const text = document.getElementById('toastText');
+
+      icon.textContent = type === 'success' ? '✓' : '✕';
+      text.textContent = message;
+      toast.className = `toast show ${type}`;
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    // Update stop loss
+    async function updateStopLoss() {
+      const input = document.getElementById('slInput');
+      const btn = document.getElementById('slBtn');
+      const newSL = parseFloat(input.value);
+
+      if (isNaN(newSL) || newSL <= 0) {
+        showToast('Invalid stop loss value', 'error');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.classList.add('saving');
+      btn.textContent = 'SAVING...';
+
+      try {
+        const res = await fetch('/trade/update-levels', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ stopLoss: newSL })
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+          showToast(`Stop Loss updated to ${formatPrice(newSL)}`);
+          if (data.trade) {
+            currentTrade = data.trade;
+            renderTradeManager();
+          }
+        } else {
+          showToast(data.error || 'Failed to update', 'error');
+        }
+      } catch (err) {
+        showToast('Network error', 'error');
+      } finally {
+        btn.disabled = false;
+        btn.classList.remove('saving');
+        btn.textContent = 'UPDATE';
+      }
+    }
+
+    // Update target
+    async function updateTarget() {
+      const input = document.getElementById('targetInput');
+      const btn = document.getElementById('targetBtn');
+      const newTarget = parseFloat(input.value);
+
+      if (isNaN(newTarget) || newTarget <= 0) {
+        showToast('Invalid target value', 'error');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.classList.add('saving');
+      btn.textContent = 'SAVING...';
+
+      try {
+        const res = await fetch('/trade/update-levels', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ target: newTarget })
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+          showToast(`Target updated to ${formatPrice(newTarget)}`);
+          if (data.trade) {
+            currentTrade = data.trade;
+            renderTradeManager();
+          }
+        } else {
+          showToast(data.error || 'Failed to update', 'error');
+        }
+      } catch (err) {
+        showToast('Network error', 'error');
+      } finally {
+        btn.disabled = false;
+        btn.classList.remove('saving');
+        btn.textContent = 'UPDATE';
+      }
+    }
+
+    // Calculate P&L
+    function calculatePnL(trade, price) {
+      if (!trade || !price) return { pnl: 0, percent: 0 };
+      const pnl = (price - trade.entryPrice) * trade.quantity;
+      const percent = ((price - trade.entryPrice) / trade.entryPrice) * 100;
+      return { pnl, percent };
+    }
+
+    // Get breakout status
+    function getBreakoutStatus(price, box) {
+      if (!price || !box) return { status: 'neutral', text: 'NO DATA', icon: '○' };
+
+      if (price > box.boxHigh) {
+        return { status: 'above', text: 'ABOVE BOX HIGH', icon: '▲' };
+      } else if (price < box.boxLow) {
+        return { status: 'below', text: 'BELOW BOX LOW', icon: '▼' };
+      } else {
+        return { status: 'inside', text: 'INSIDE BOX', icon: '◆' };
+      }
+    }
+
+    // Render empty state
+    function renderEmptyState() {
+      document.getElementById('mainContent').innerHTML = `
+        <div class="empty-state">
+          <div class="empty-icon">◇</div>
+          <div class="empty-text">No Active Trade</div>
+          <div class="empty-sub">Waiting for a new trade signal...</div>
+        </div>
+      `;
+    }
+
+    // Render trade manager
+    function renderTradeManager() {
+      if (!currentTrade || currentTrade.status !== 'OPEN') {
+        renderEmptyState();
+        return;
+      }
+
+      const trade = currentTrade;
+      const price = currentPrice || trade.entryPrice;
+      const { pnl, percent } = calculatePnL(trade, price);
+      const pnlClass = pnl >= 0 ? 'profit' : 'loss';
+      const priceChange = price - trade.entryPrice;
+      const priceChangeClass = priceChange >= 0 ? 'up' : 'down';
+      const signalClass = trade.signal === 'BULL' ? 'bull' : 'bear';
+
+      const breakoutStatus = getBreakoutStatus(price, boxData);
+      const reason = trade.tradeReason || {};
+      const modifications = trade.levelModifications || [];
+
+      document.getElementById('mainContent').innerHTML = `
+        <div class="main-grid">
+          <!-- Trade Management Card -->
+          <div class="card trade-manager-card">
+            <div class="card-header">
+              <div class="card-header-left">
+                <span class="card-icon" style="color: var(--${trade.signal === 'BULL' ? 'green' : 'red'})">●</span>
+                <span class="card-title">ACTIVE TRADE MANAGEMENT</span>
+              </div>
+              <span style="font-size: 11px; color: var(--muted);">Order: ${trade.orderId || '--'}</span>
+            </div>
+            <div class="card-content">
+              <div class="trade-manager-grid">
+                <!-- Trade Info Section -->
+                <div class="trade-info-section">
+                  <div class="trade-header-row">
+                    <span class="signal-badge ${signalClass}">${trade.signal}</span>
+                    <span class="trade-symbol">${trade.tradingsymbol}</span>
+                  </div>
+                  <div class="trade-time">Entered: ${trade.date} ${trade.time}</div>
+
+                  <div class="trade-metrics">
+                    <div class="metric-box">
+                      <div class="metric-label">ENTRY PRICE</div>
+                      <div class="metric-value entry">${formatPrice(trade.entryPrice)}</div>
+                    </div>
+                    <div class="metric-box">
+                      <div class="metric-label">QUANTITY</div>
+                      <div class="metric-value qty">${trade.quantity}</div>
+                    </div>
+                    <div class="metric-box">
+                      <div class="metric-label">STRIKE</div>
+                      <div class="metric-value">${trade.strike} ${trade.optionType}</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Level Controls Section -->
+                <div class="level-controls-section">
+                  <div class="level-control sl">
+                    <div class="level-header">
+                      <span class="level-label sl">STOP LOSS</span>
+                      <span class="level-initial">Initial: ${formatPrice(trade.initialStopLoss || trade.stopLoss)}</span>
+                    </div>
+                    <div class="level-input-row">
+                      <input type="number" class="level-input sl" id="slInput" value="${trade.stopLoss.toFixed(2)}" step="0.05">
+                      <button class="update-btn" id="slBtn" onclick="updateStopLoss()">UPDATE</button>
+                    </div>
+                  </div>
+
+                  <div class="level-control target">
+                    <div class="level-header">
+                      <span class="level-label target">TARGET</span>
+                      <span class="level-initial">Initial: ${formatPrice(trade.initialTarget || trade.target)}</span>
+                    </div>
+                    <div class="level-input-row">
+                      <input type="number" class="level-input target" id="targetInput" value="${trade.target.toFixed(2)}" step="0.05">
+                      <button class="update-btn" id="targetBtn" onclick="updateTarget()">UPDATE</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- P&L Section -->
+                <div class="pnl-section">
+                  <div class="pnl-display">
+                    <div class="pnl-label">UNREALIZED P&L</div>
+                    <div class="pnl-value ${pnlClass}">${pnl >= 0 ? '+' : ''}${formatPrice(pnl)}</div>
+                    <div class="pnl-percent ${pnlClass}">${percent >= 0 ? '+' : ''}${percent.toFixed(2)}%</div>
+                  </div>
+
+                  <div class="current-price-box">
+                    <div>
+                      <div class="current-price-label">CURRENT PRICE</div>
+                    </div>
+                    <div>
+                      <span class="current-price-value" id="currentPriceDisplay">${formatPrice(price)}</span>
+                      <span class="price-change ${priceChangeClass}">${priceChange >= 0 ? '+' : ''}${formatPrice(priceChange)}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="sidebar-grid">
+            <!-- Trade Reason Card -->
+            <div class="card reason-card">
+              <div class="card-header">
+                <div class="card-header-left">
+                  <span class="card-icon" style="color: var(--yellow)">◆</span>
+                  <span class="card-title">WHY THIS TRADE?</span>
+                </div>
+              </div>
+              <div class="card-content">
+                ${reason.breakoutCandle ? `
+                  <div class="reason-section">
+                    <div class="reason-section-title">BREAKOUT CANDLE</div>
+                    <div class="reason-row">
+                      <span class="reason-label">Time</span>
+                      <span class="reason-value">${formatShortTime(reason.breakoutCandle.date)}</span>
+                    </div>
+                    <div class="reason-row">
+                      <span class="reason-label">Open</span>
+                      <span class="reason-value">${formatPrice(reason.breakoutCandle.open)}</span>
+                    </div>
+                    <div class="reason-row">
+                      <span class="reason-label">High</span>
+                      <span class="reason-value high">${formatPrice(reason.breakoutCandle.high)}</span>
+                    </div>
+                    <div class="reason-row">
+                      <span class="reason-label">Low</span>
+                      <span class="reason-value low">${formatPrice(reason.breakoutCandle.low)}</span>
+                    </div>
+                    <div class="reason-row">
+                      <span class="reason-label">Close</span>
+                      <span class="reason-value">${formatPrice(reason.breakoutCandle.close)}</span>
+                    </div>
+                  </div>
+
+                  <div class="reason-section">
+                    <div class="reason-section-title">BOX AT ENTRY</div>
+                    <div class="reason-row">
+                      <span class="reason-label">Box High</span>
+                      <span class="reason-value high">${formatPrice(reason.boxAtEntry?.boxHigh)}</span>
+                    </div>
+                    <div class="reason-row">
+                      <span class="reason-label">Box Low</span>
+                      <span class="reason-value low">${formatPrice(reason.boxAtEntry?.boxLow)}</span>
+                    </div>
+                    <div class="reason-row">
+                      <span class="reason-label">Direction</span>
+                      <span class="reason-value ${reason.breakoutDirection?.toLowerCase()}">${reason.breakoutDirection || '--'}</span>
+                    </div>
+                    <div class="reason-row">
+                      <span class="reason-label">Re-entry?</span>
+                      <span class="reentry-badge ${reason.isReEntry ? 'yes' : 'no'}">${reason.isReEntry ? 'YES' : 'NO'}</span>
+                    </div>
+                  </div>
+
+                  ${reason.priceReturnedToBox && reason.returnToBoxCandle ? `
+                    <div class="reason-section">
+                      <div class="reason-section-title">RETURN TO BOX</div>
+                      <div class="reason-row">
+                        <span class="reason-label">Time</span>
+                        <span class="reason-value">${formatShortTime(reason.returnToBoxCandle.date)}</span>
+                      </div>
+                      <div class="reason-row">
+                        <span class="reason-label">Close</span>
+                        <span class="reason-value">${formatPrice(reason.returnToBoxCandle.close)}</span>
+                      </div>
+                    </div>
+                  ` : ''}
+                ` : `
+                  <div class="empty-state" style="padding: 20px 0;">
+                    <div class="empty-text" style="font-size: 12px;">No detailed reason available</div>
+                  </div>
+                `}
+              </div>
+            </div>
+
+            <!-- Box Status Card -->
+            <div class="card box-status-card">
+              <div class="card-header">
+                <div class="card-header-left">
+                  <span class="card-icon" style="color: var(--blue)">□</span>
+                  <span class="card-title">BOX STATUS</span>
+                </div>
+              </div>
+              <div class="card-content">
+                ${boxData ? `
+                  <div class="box-levels">
+                    <div class="box-level">
+                      <div class="box-level-label">BOX HIGH</div>
+                      <div class="box-level-value high">${formatPrice(boxData.boxHigh)}</div>
+                    </div>
+                    <div class="box-level">
+                      <div class="box-level-label">BOX LOW</div>
+                      <div class="box-level-value low">${formatPrice(boxData.boxLow)}</div>
+                    </div>
+                  </div>
+
+                  <div class="box-breakout-status">
+                    <div class="breakout-indicator ${breakoutStatus.status}">
+                      <span class="breakout-icon">${breakoutStatus.icon}</span>
+                      <span>${breakoutStatus.text}</span>
+                    </div>
+                  </div>
+                ` : `
+                  <div class="empty-state" style="padding: 20px 0;">
+                    <div class="empty-text" style="font-size: 12px;">Box data not available</div>
+                  </div>
+                `}
+              </div>
+            </div>
+
+            <!-- Modification History Card -->
+            <div class="card">
+              <div class="card-header">
+                <div class="card-header-left">
+                  <span class="card-icon" style="color: var(--purple)">↻</span>
+                  <span class="card-title">LEVEL CHANGES</span>
+                </div>
+                <span style="font-size: 11px; color: var(--muted);">${modifications.length}</span>
+              </div>
+              <div class="card-content">
+                ${modifications.length > 0 ? `
+                  <div class="modifications-list">
+                    ${modifications.slice().reverse().map(mod => `
+                      <div class="modification-item">
+                        <span class="mod-time">${formatShortTime(mod.timestamp)}</span>
+                        <span class="mod-field ${mod.field}">${mod.field.toUpperCase()}</span>
+                        <span class="mod-old">${formatPrice(mod.oldValue)}</span>
+                        <span class="mod-arrow">→</span>
+                        <span class="mod-new">${formatPrice(mod.newValue)}</span>
+                        <span class="mod-source ${mod.source?.toLowerCase()}">${mod.source}</span>
+                      </div>
+                    `).join('')}
+                  </div>
+                ` : `
+                  <div class="empty-state" style="padding: 20px 0;">
+                    <div class="empty-text" style="font-size: 12px;">No modifications yet</div>
+                  </div>
+                `}
+              </div>
+            </div>
+
+            <!-- Breakout Events Card -->
+            <div class="card">
+              <div class="card-header">
+                <div class="card-header-left">
+                  <span class="card-icon" style="color: var(--green)">⚡</span>
+                  <span class="card-title">BREAKOUT EVENTS</span>
+                </div>
+                <span style="font-size: 11px; color: var(--muted);">${breakoutEvents.length}</span>
+              </div>
+              <div class="card-content">
+                ${breakoutEvents.length > 0 ? `
+                  <div class="breakout-events-list">
+                    ${breakoutEvents.slice().reverse().map(event => `
+                      <div class="breakout-event">
+                        <span class="event-time">${formatShortTime(event.timestamp)}</span>
+                        <span class="event-type ${event.type?.toLowerCase() || 'return'}">${event.type || 'EVENT'}</span>
+                        <span class="event-price">${formatPrice(event.price)}</span>
+                      </div>
+                    `).join('')}
+                  </div>
+                ` : `
+                  <div class="empty-state" style="padding: 20px 0;">
+                    <div class="empty-text" style="font-size: 12px;">No breakout events today</div>
+                  </div>
+                `}
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Update time display
+    function updateTimeDisplay() {
+      document.getElementById('updateTime').textContent = formatTime(new Date());
+    }
+
+    // WebSocket connection
+    function connectWebSocket() {
+      const wsUrl = `ws://${window.location.host}/ws`;
+      ws = new WebSocket(wsUrl);
+
+      ws.onopen = () => {
+        console.log('WebSocket connected');
+        document.getElementById('wsStatus').classList.add('connected');
+        document.getElementById('connectionInfo').textContent = 'Connected';
+        reconnectAttempts = 0;
+
+        // Send ping every 30 seconds
+        setInterval(() => {
+          if (ws.readyState === WebSocket.OPEN) {
+            ws.send(JSON.stringify({ event: 'ping' }));
+          }
+        }, 30000);
+      };
+
+      ws.onmessage = (event) => {
+        try {
+          const message = JSON.parse(event.data);
+          handleWebSocketMessage(message);
+        } catch (err) {
+          console.error('WS message parse error:', err);
+        }
+      };
+
+      ws.onclose = () => {
+        console.log('WebSocket disconnected');
+        document.getElementById('wsStatus').classList.remove('connected');
+        document.getElementById('connectionInfo').textContent = 'Disconnected';
+
+        // Reconnect logic
+        if (reconnectAttempts < maxReconnectAttempts) {
+          reconnectAttempts++;
+          const delay = Math.min(1000 * Math.pow(2, reconnectAttempts), 30000);
+          console.log(`Reconnecting in ${delay}ms...`);
+          setTimeout(connectWebSocket, delay);
+        }
+      };
+
+      ws.onerror = (err) => {
+        console.error('WebSocket error:', err);
+      };
+    }
+
+    // Handle WebSocket messages
+    function handleWebSocketMessage(message) {
+      switch (message.event) {
+        case 'trade_update':
+          if (message.data?.trade) {
+            currentTrade = message.data.trade;
+            renderTradeManager();
+          }
+          break;
+
+        case 'price_update':
+          if (message.data?.price) {
+            currentPrice = message.data.price;
+            updatePriceDisplay();
+          }
+          break;
+
+        case 'breakout_event':
+          if (message.data) {
+            breakoutEvents.push(message.data);
+            renderTradeManager();
+          }
+          break;
+
+        case 'breakout_events_init':
+          if (message.data?.events) {
+            breakoutEvents = message.data.events;
+            renderTradeManager();
+          }
+          break;
+
+        case 'pong':
+          // Heartbeat response
+          break;
+      }
+    }
+
+    // Update price display without full re-render
+    function updatePriceDisplay() {
+      const priceEl = document.getElementById('currentPriceDisplay');
+      if (priceEl && currentPrice) {
+        priceEl.textContent = formatPrice(currentPrice);
+        priceEl.classList.add('price-flash');
+        setTimeout(() => priceEl.classList.remove('price-flash'), 300);
+
+        // Update P&L if trade exists
+        if (currentTrade) {
+          const { pnl, percent } = calculatePnL(currentTrade, currentPrice);
+          const pnlValueEl = document.querySelector('.pnl-value');
+          const pnlPercentEl = document.querySelector('.pnl-percent');
+
+          if (pnlValueEl) {
+            pnlValueEl.textContent = `${pnl >= 0 ? '+' : ''}${formatPrice(pnl)}`;
+            pnlValueEl.className = `pnl-value ${pnl >= 0 ? 'profit' : 'loss'}`;
+          }
+
+          if (pnlPercentEl) {
+            pnlPercentEl.textContent = `${percent >= 0 ? '+' : ''}${percent.toFixed(2)}%`;
+            pnlPercentEl.className = `pnl-percent ${percent >= 0 ? 'profit' : 'loss'}`;
+          }
+        }
+      }
+    }
+
+    // Fetch initial data via REST
+    async function fetchInitialData() {
+      try {
+        const [tradeRes, boxRes, eventsRes] = await Promise.allSettled([
+          fetch('/current-trade').then(r => r.json()),
+          fetch('/box').then(r => r.json()),
+          fetch('/breakout-events').then(r => r.json())
+        ]);
+
+        if (tradeRes.status === 'fulfilled' && tradeRes.value?.trade) {
+          currentTrade = tradeRes.value.trade;
+        }
+
+        if (boxRes.status === 'fulfilled' && boxRes.value?.boxHigh) {
+          boxData = boxRes.value;
+        }
+
+        if (eventsRes.status === 'fulfilled' && eventsRes.value?.events) {
+          breakoutEvents = eventsRes.value.events;
+        }
+
+        renderTradeManager();
+      } catch (err) {
+        console.error('Fetch error:', err);
+        renderEmptyState();
+      }
+    }
+
+    // Initialize
+    function init() {
+      updateTimeDisplay();
+      setInterval(updateTimeDisplay, 1000);
+
+      fetchInitialData();
+      connectWebSocket();
+
+      // Refresh data every 10 seconds as fallback
+      setInterval(fetchInitialData, 10000);
+    }
+
+    // Start
+    init();
+  </script>
+</body>
+</html>

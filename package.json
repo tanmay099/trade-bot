@@ -1,0 +1,45 @@
+{
+  "name": "nifty-trading-bot-modular",
+  "version": "2.0.0",
+  "description": "Modular NIFTY options trading bot with box breakout strategy",
+  "main": "main-server.js",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc",
+    "start": "node main-server-ticker.js",
+    "start:paper": "PAPER_TRADE_MODE=true node main-server-ticker.js",
+    "start:live": "PAPER_TRADE_MODE=false node main-server-ticker.js",
+    "dev": "npx tsx main-server-ticker.js",
+    "test:instruments": "npx tsx -e \"import('./modules/instruments/parser').then(m => console.log(m))\"",
+    "test:box": "npx tsx -e \"import('./modules/box/calculator').then(m => console.log(m))\"",
+    "test:signals": "npx tsx -e \"import('./modules/signals/detector').then(m => console.log(m))\"",
+    "test:trades": "npx tsx -e \"import('./modules/trades/persistence').then(m => console.log(m))\"",
+    "test:orders": "npx tsx -e \"import('./modules/orders/executor').then(m => console.log(m))\"",
+    "test:monitor": "npx tsx -e \"import('./modules/monitor/position').then(m => console.log(m))\"",
+    "test:dummy-trade": "npx tsx test-dummy-trade.ts",
+    "test:dummy-trade:live": "PAPER_TRADE_MODE=false npx tsx test-dummy-trade.ts",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "trading",
+    "nifty",
+    "options",
+    "algo-trading",
+    "kite",
+    "zerodha"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "body-parser": "^2.2.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "kiteconnect": "^5.1.0",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "typescript": "^5.9.3"
+  }
+}

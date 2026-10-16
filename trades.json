@@ -1,0 +1,3009 @@
+[
+  {
+    "date": "2026-01-16",
+    "time": "09:50:12",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY2612025550CE",
+    "strike": 25550,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 259.35,
+    "stopLoss": 239.35000000000002,
+    "target": 294.35,
+    "orderId": "2012017010556297216",
+    "status": "CLOSED",
+    "exitPrice": 294.5,
+    "exitTime": "10:11:41",
+    "exitReason": "TARGET",
+    "pnl": 4569.499999999997
+  },
+  {
+    "date": "2026-01-16",
+    "time": "10:11:53",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY2612025600CE",
+    "strike": 25600,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 252.75,
+    "stopLoss": 232.75,
+    "target": 287.75,
+    "orderId": "2012022465433198592",
+    "status": "CLOSED",
+    "exitReason": "self exit"
+  },
+  {
+    "date": "2026-01-19",
+    "time": "10:03:55",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2612025700PE",
+    "strike": 25700,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 210.65,
+    "stopLoss": 190.65,
+    "target": 245.65,
+    "orderId": "2013107627256487936",
+    "status": "CLOSED",
+    "exitPrice": 189.5,
+    "exitTime": "10:18:27",
+    "exitReason": "SL",
+    "pnl": -2749.500000000001
+  },
+  {
+    "date": "2026-01-19",
+    "time": "10:26:04",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2612025750PE",
+    "strike": 25750,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 239.75,
+    "stopLoss": 219.75,
+    "target": 274.75,
+    "orderId": "2013113200400179201",
+    "status": "CLOSED",
+    "exitPrice": 204.75,
+    "exitTime": "11:04:03",
+    "exitReason": "SL",
+    "pnl": -4550
+  },
+  {
+    "date": "2026-01-20",
+    "time": "09:27:56",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2612025700PE",
+    "strike": 25700,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 216.15,
+    "stopLoss": 196.15,
+    "target": 251.15,
+    "orderId": "2013460959019966464",
+    "status": "CLOSED",
+    "exitPrice": 251.6,
+    "exitTime": "09:54:00",
+    "exitReason": "TARGET",
+    "pnl": 4608.499999999998
+  },
+  {
+    "date": "2026-01-20",
+    "time": "09:54:12",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2612025650PE",
+    "strike": 25650,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 214.45,
+    "stopLoss": 194.45,
+    "target": 249.45,
+    "orderId": "2013467567275941888",
+    "status": "CLOSED"
+  },
+  {
+    "date": "2026-01-20",
+    "time": "11:47:48",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2612025650PE",
+    "strike": 25650,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 176.65,
+    "stopLoss": 156.65,
+    "target": 211.65,
+    "orderId": "2013460959019966464",
+    "status": "CLOSED",
+    "exitPrice": 213.75,
+    "exitTime": "12:08:59",
+    "exitReason": "TARGET",
+    "pnl": 4822.999999999999
+  },
+  {
+    "date": "2026-01-20",
+    "time": "14:55:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2612025550PE",
+    "strike": 25550,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 213.2,
+    "stopLoss": 193.2,
+    "target": 248.2,
+    "orderId": "2013543270558244865",
+    "status": "CLOSED",
+    "exitPrice": 249,
+    "exitTime": "15:00:36",
+    "exitReason": "TARGET",
+    "pnl": 4654.000000000002
+  },
+  {
+    "date": "2026-01-21",
+    "time": "10:25:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY26JAN25300PE",
+    "strike": 25300,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 231.75,
+    "stopLoss": 211.75,
+    "target": 266.75,
+    "orderId": "2013837711823118336",
+    "status": "CLOSED",
+    "exitPrice": 266.95,
+    "exitTime": "10:41:49",
+    "exitReason": "TARGET",
+    "pnl": 4575.999999999998
+  },
+  {
+    "date": "2026-01-21",
+    "time": "10:25:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY26JAN25300PE",
+    "strike": 25300,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 231.75,
+    "stopLoss": 211.75,
+    "target": 266.75,
+    "exitPrice": 241.65,
+    "exitTime": "10:41:49",
+    "orderId": "2013837711823118336",
+    "status": "CLOSED",
+    "exitReason": "TARGET"
+  },
+  {
+    "date": "2026-01-21",
+    "time": "11:30:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY26JAN25250PE",
+    "strike": 25250,
+    "optionType": "PE",
+    "quantity": 65,
+    "entryPrice": 264.9,
+    "stopLoss": 244.89999999999998,
+    "target": 299.9,
+    "orderId": "2013854068438507520",
+    "status": "CLOSED",
+    "exitPrice": 244.25,
+    "exitTime": "11:31:47",
+    "exitReason": "SL",
+    "pnl": -1342.2499999999986
+  },
+  {
+    "date": "2026-01-21",
+    "time": "11:35:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY26JAN25250PE",
+    "strike": 25250,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 253.2,
+    "stopLoss": 233.2,
+    "target": 236.2,
+    "orderId": "2013855326721318912",
+    "status": "CLOSED",
+    "exitTime": "12:31:47",
+    "exitReason": "SL"
+  },
+  {
+    "date": "2026-01-22",
+    "time": "09:35:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY26JAN25200CE",
+    "strike": 25200,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 295.1,
+    "stopLoss": 275.1,
+    "target": 355.1,
+    "orderId": "2014187515786862592",
+    "status": "CLOSED",
+    "exitPrice": 285,
+    "exitTime": "09:55:22",
+    "exitReason": "SL",
+    "pnl": -1313.000000000003
+  },
+  {
+    "date": "2026-01-22",
+    "time": "09:35:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY26JAN25200CE",
+    "strike": 25200,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 295.1,
+    "stopLoss": 275.1,
+    "target": 355.1,
+    "orderId": "2014187515786862592",
+    "status": "CLOSED"
+  },
+  {
+    "date": "2026-01-22",
+    "time": "10:30:07",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY26JAN25500PE",
+    "strike": 25500,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 241.1,
+    "stopLoss": 221.1,
+    "target": 301.1,
+    "orderId": "2014201359733137408",
+    "status": "CLOSED"
+  },
+  {
+    "date": "2026-01-22",
+    "time": "11:10:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY26JAN25450PE",
+    "strike": 25450,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 259.35,
+    "stopLoss": 239.35000000000002,
+    "target": 299.35,
+    "orderId": "2014211423403548672",
+    "status": "CLOSED"
+  },
+  {
+    "date": "2026-01-22",
+    "time": "11:10:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY26JAN25400PE",
+    "strike": 25400,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 225.8,
+    "stopLoss": 205.8,
+    "target": 265.8,
+    "orderId": "2014211424213049344",
+    "status": "CLOSED"
+  },
+  {
+    "date": "2026-01-22",
+    "time": "12:40:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY26JAN25450PE",
+    "strike": 25450,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 246.5,
+    "stopLoss": 226.5,
+    "target": 286.5,
+    "orderId": "2014234073349791744",
+    "status": "CLOSED",
+    "exitPrice": 236,
+    "exitTime": "12:49:51",
+    "exitReason": "SL",
+    "pnl": -1365
+  },
+  {
+    "date": "2026-01-22",
+    "time": "12:40:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY26JAN25450PE",
+    "strike": 25450,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 246.5,
+    "stopLoss": 226.5,
+    "target": 286.5,
+    "orderId": "2014234073349791744",
+    "status": "CLOSED"
+  },
+  {
+    "date": "2026-01-22",
+    "time": "14:00:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY26JAN25450PE",
+    "strike": 25450,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 241.5,
+    "stopLoss": 242,
+    "initialStopLoss": 221.5,
+    "target": 281.5,
+    "initialTarget": 281.5,
+    "orderId": "2014254207149842432",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-01-22T08:25:00.000Z",
+        "open": 25233.4,
+        "high": 25241.1,
+        "low": 25221.95,
+        "close": 25229.65
+      },
+      "boxAtEntry": {
+        "boxHigh": 25395.75,
+        "boxLow": 25302.45
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": true,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [
+      {
+        "timestamp": "2026-01-22T08:34:41.428Z",
+        "field": "stopLoss",
+        "oldValue": 221.5,
+        "newValue": 222,
+        "source": "MANUAL"
+      },
+      {
+        "timestamp": "2026-01-22T08:43:33.604Z",
+        "field": "stopLoss",
+        "oldValue": 222,
+        "newValue": 242,
+        "source": "MANUAL"
+      }
+    ],
+    "exitPrice": 282,
+    "exitTime": "14:13:56",
+    "exitReason": "TARGET",
+    "pnl": 5265
+  },
+  {
+    "date": "2026-01-22",
+    "time": "14:00:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY26JAN25450PE",
+    "strike": 25450,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 241.5,
+    "stopLoss": 221.5,
+    "initialStopLoss": 221.5,
+    "target": 281.5,
+    "initialTarget": 281.5,
+    "orderId": "2014254207149842432",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-01-22T08:25:00.000Z",
+        "open": 25233.4,
+        "high": 25241.1,
+        "low": 25221.95,
+        "close": 25229.65
+      },
+      "boxAtEntry": {
+        "boxHigh": 25395.75,
+        "boxLow": 25302.45
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": true,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": []
+  },
+  {
+    "date": "2026-01-23",
+    "time": "11:40:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY26JAN25450PE",
+    "strike": 25450,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 228.65,
+    "stopLoss": 208.65,
+    "initialStopLoss": 208.65,
+    "target": 268.65,
+    "initialTarget": 268.65,
+    "orderId": "2014581361704214528",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-01-23T06:05:00.000Z",
+        "open": 25256.65,
+        "high": 25259.25,
+        "low": 25230.2,
+        "close": 25230.2
+      },
+      "boxAtEntry": {
+        "boxHigh": 25347.95,
+        "boxLow": 25249.1
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 268.7,
+    "exitTime": "11:49:57",
+    "exitReason": "TARGET",
+    "pnl": 5206.499999999998
+  },
+  {
+    "date": "2026-01-23",
+    "time": "11:40:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY26JAN25450PE",
+    "strike": 25450,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 228.65,
+    "stopLoss": 208.65,
+    "initialStopLoss": 208.65,
+    "target": 268.65,
+    "initialTarget": 268.65,
+    "orderId": "2014581361704214528",
+    "status": "OPEN",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-01-23T06:05:00.000Z",
+        "open": 25256.65,
+        "high": 25259.25,
+        "low": 25230.2,
+        "close": 25230.2
+      },
+      "boxAtEntry": {
+        "boxHigh": 25347.95,
+        "boxLow": 25249.1
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": []
+  },
+  {
+    "date": "2026-01-27",
+    "time": "10:15:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY26JAN24950CE",
+    "strike": 24950,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 221.85,
+    "stopLoss": 201.85,
+    "initialStopLoss": 201.85,
+    "target": 261.85,
+    "initialTarget": 261.85,
+    "orderId": "2016009521666760704",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-01-27T04:40:00.000Z",
+        "open": 25099.45,
+        "high": 25131.6,
+        "low": 25086.9,
+        "close": 25128.75
+      },
+      "boxAtEntry": {
+        "boxHigh": 25126.3,
+        "boxLow": 24932.55
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 269.8,
+    "exitTime": "10:19:38",
+    "exitReason": "TARGET",
+    "pnl": 6233.500000000002
+  },
+  {
+    "date": "2026-01-27",
+    "time": "10:35:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY26JAN24950CE",
+    "strike": 24950,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 211.05,
+    "stopLoss": 191.05,
+    "initialStopLoss": 191.05,
+    "target": 251.05,
+    "initialTarget": 251.05,
+    "orderId": "2016014555141939200",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-01-27T05:00:00.000Z",
+        "open": 25117.7,
+        "high": 25133.4,
+        "low": 25105.75,
+        "close": 25129.05
+      },
+      "boxAtEntry": {
+        "boxHigh": 25126.3,
+        "boxLow": 24932.55
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": true,
+      "priceReturnedToBox": true,
+      "returnToBoxCandle": {
+        "date": "2026-01-27T04:55:00.000Z",
+        "close": 25117.3
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 189.9,
+    "exitTime": "10:40:11",
+    "exitReason": "SL",
+    "pnl": -2749.500000000001
+  },
+  {
+    "date": "2026-01-27",
+    "time": "11:45:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY26JAN24950CE",
+    "strike": 24950,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 237.95,
+    "stopLoss": 217.95,
+    "initialStopLoss": 217.95,
+    "target": 277.95,
+    "initialTarget": 277.95,
+    "orderId": "2016032170954498048",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-01-27T06:10:00.000Z",
+        "open": 25090.5,
+        "high": 25157.85,
+        "low": 25079.45,
+        "close": 25155.35
+      },
+      "boxAtEntry": {
+        "boxHigh": 25126.3,
+        "boxLow": 24932.55
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": true,
+      "priceReturnedToBox": true,
+      "returnToBoxCandle": {
+        "date": "2026-01-27T05:15:00.000Z",
+        "close": 25040.05
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 214.95,
+    "exitTime": "11:48:18",
+    "exitReason": "SL",
+    "pnl": -2990
+  },
+  {
+    "date": "2026-01-28",
+    "time": "13:45:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2620325400PE",
+    "strike": 25400,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 307.8,
+    "stopLoss": 287.8,
+    "initialStopLoss": 287.8,
+    "target": 347.8,
+    "initialTarget": 347.8,
+    "orderId": "2016424758039584768",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-01-28T08:10:00.000Z",
+        "open": 25232.4,
+        "high": 25240.8,
+        "low": 25207.15,
+        "close": 25208.35
+      },
+      "boxAtEntry": {
+        "boxHigh": 25372.1,
+        "boxLow": 25225.7
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 287.7,
+    "exitTime": "13:58:44",
+    "exitReason": "SL",
+    "pnl": -2613.0000000000027
+  },
+  {
+    "date": "2026-01-28",
+    "time": "14:10:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2620325400PE",
+    "strike": 25400,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 294.2,
+    "stopLoss": 274.2,
+    "initialStopLoss": 274.2,
+    "target": 334.2,
+    "initialTarget": 334.2,
+    "orderId": "2016431049386532864",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-01-28T08:35:00.000Z",
+        "open": 25235.5,
+        "high": 25237.45,
+        "low": 25221.7,
+        "close": 25224.2
+      },
+      "boxAtEntry": {
+        "boxHigh": 25372.1,
+        "boxLow": 25225.7
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": true,
+      "priceReturnedToBox": true,
+      "returnToBoxCandle": {
+        "date": "2026-01-28T08:30:00.000Z",
+        "close": 25235.8
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 273.45,
+    "exitTime": "14:30:47",
+    "exitReason": "SL",
+    "pnl": -2697.5
+  },
+  {
+    "date": "2026-01-29",
+    "time": "09:40:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2620325450PE",
+    "strike": 25450,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 310.55,
+    "stopLoss": 290.55,
+    "initialStopLoss": 290.55,
+    "target": 350.55,
+    "initialTarget": 350.55,
+    "orderId": "2016725489598636032",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-01-29T04:05:00.000Z",
+        "open": 25227.35,
+        "high": 25229.55,
+        "low": 25216.1,
+        "close": 25225.05
+      },
+      "boxAtEntry": {
+        "boxHigh": 25359.35,
+        "boxLow": 25248.55
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 351.2,
+    "exitTime": "09:54:35",
+    "exitReason": "TARGET",
+    "pnl": 5284.499999999997
+  },
+  {
+    "date": "2026-01-29",
+    "time": "11:55:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2620325450PE",
+    "strike": 25450,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 295.85,
+    "stopLoss": 275.85,
+    "initialStopLoss": 275.85,
+    "target": 335.85,
+    "initialTarget": 335.85,
+    "orderId": "PAPER_1769667900129_1000000",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-01-29T06:20:00.000Z",
+        "open": 25262.8,
+        "high": 25274.9,
+        "low": 25240,
+        "close": 25244.85
+      },
+      "boxAtEntry": {
+        "boxHigh": 25359.35,
+        "boxLow": 25248.55
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": true,
+      "priceReturnedToBox": true,
+      "returnToBoxCandle": {
+        "date": "2026-01-29T05:40:00.000Z",
+        "close": 25257.6
+      }
+    },
+    "levelModifications": [],
+    "paperTrade": true,
+    "exitPrice": 275.8,
+    "exitTime": "12:05:36",
+    "exitReason": "SL",
+    "pnl": -2606.5000000000014
+  },
+  {
+    "date": "2026-01-29",
+    "time": "14:15:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY2620325200CE",
+    "strike": 25200,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 341.8,
+    "stopLoss": 321.8,
+    "initialStopLoss": 321.8,
+    "target": 381.8,
+    "initialTarget": 381.8,
+    "orderId": "PAPER_1769676300210_1000000",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-01-29T08:40:00.000Z",
+        "open": 25384.9,
+        "high": 25420.85,
+        "low": 25384.3,
+        "close": 25412.95
+      },
+      "boxAtEntry": {
+        "boxHigh": 25359.35,
+        "boxLow": 25248.55
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": true,
+      "priceReturnedToBox": true,
+      "returnToBoxCandle": {
+        "date": "2026-01-29T06:36:00.000Z",
+        "close": 25262.45
+      }
+    },
+    "levelModifications": [],
+    "paperTrade": true
+  },
+  {
+    "date": "2026-01-30",
+    "time": "09:40:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY2620325100CE",
+    "strike": 25100,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 321.7,
+    "stopLoss": 301.7,
+    "initialStopLoss": 301.7,
+    "target": 361.7,
+    "initialTarget": 361.7,
+    "orderId": "2017087877204189184",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-01-30T04:05:00.000Z",
+        "open": 25261.4,
+        "high": 25308.5,
+        "low": 25261.2,
+        "close": 25290
+      },
+      "boxAtEntry": {
+        "boxHigh": 25285.95,
+        "boxLow": 25224.35
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 311.05,
+    "exitTime": "09:57:36",
+    "exitReason": "SL",
+    "pnl": -1384.499999999997
+  },
+  {
+    "date": "2026-01-30",
+    "time": "10:15:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY2620325100CE",
+    "strike": 25100,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 336.8,
+    "stopLoss": 316.8,
+    "initialStopLoss": 316.8,
+    "target": 376.8,
+    "initialTarget": 376.8,
+    "orderId": "2017096685506830336",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-01-30T04:40:00.000Z",
+        "open": 25282.65,
+        "high": 25315.75,
+        "low": 25275.45,
+        "close": 25315.1
+      },
+      "boxAtEntry": {
+        "boxHigh": 25285.95,
+        "boxLow": 25224.35
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": true,
+      "priceReturnedToBox": true,
+      "returnToBoxCandle": {
+        "date": "2026-01-30T04:35:00.000Z",
+        "close": 25282.15
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 316.15,
+    "exitTime": "10:20:52",
+    "exitReason": "SL",
+    "pnl": -2684.5000000000045
+  },
+  {
+    "date": "2026-01-30",
+    "time": "10:35:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY2620325100CE",
+    "strike": 25100,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 316.75,
+    "stopLoss": 296.75,
+    "initialStopLoss": 296.75,
+    "target": 356.75,
+    "initialTarget": 356.75,
+    "orderId": "PAPER_1769749500157_1000000",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-01-30T05:00:00.000Z",
+        "open": 25279.6,
+        "high": 25299.95,
+        "low": 25273.45,
+        "close": 25290.9
+      },
+      "boxAtEntry": {
+        "boxHigh": 25285.95,
+        "boxLow": 25224.35
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": true,
+      "priceReturnedToBox": true,
+      "returnToBoxCandle": {
+        "date": "2026-01-30T04:52:00.000Z",
+        "close": 25285.15
+      }
+    },
+    "levelModifications": [],
+    "paperTrade": true,
+    "exitPrice": 296.7,
+    "exitTime": "11:10:17",
+    "exitReason": "SL",
+    "pnl": -2606.5000000000014
+  },
+  {
+    "date": "2026-01-30",
+    "time": "12:35:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY2620325100CE",
+    "strike": 25100,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 325,
+    "stopLoss": 305,
+    "initialStopLoss": 305,
+    "target": 365,
+    "initialTarget": 365,
+    "orderId": "PAPER_1769756700048_1000000",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-01-30T07:00:00.000Z",
+        "open": 25293.75,
+        "high": 25294.85,
+        "low": 25293.75,
+        "close": 25294.85
+      },
+      "boxAtEntry": {
+        "boxHigh": 25285.95,
+        "boxLow": 25224.35
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": true,
+      "priceReturnedToBox": true,
+      "returnToBoxCandle": {
+        "date": "2026-01-30T05:41:00.000Z",
+        "close": 25251.15
+      }
+    },
+    "levelModifications": [],
+    "paperTrade": true,
+    "exitPrice": 304.7,
+    "exitTime": "13:06:12",
+    "exitReason": "SL",
+    "pnl": -2639.0000000000014
+  },
+  {
+    "date": "2026-01-30",
+    "time": "14:45:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY2620325100CE",
+    "strike": 25100,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 325.55,
+    "stopLoss": 305.55,
+    "initialStopLoss": 305.55,
+    "target": 365.55,
+    "initialTarget": 365.55,
+    "orderId": "PAPER_1769764500084_1000000",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-01-30T09:10:00.000Z",
+        "open": 25306.25,
+        "high": 25314.4,
+        "low": 25304,
+        "close": 25311.9
+      },
+      "boxAtEntry": {
+        "boxHigh": 25285.95,
+        "boxLow": 25224.35
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": true,
+      "priceReturnedToBox": true,
+      "returnToBoxCandle": {
+        "date": "2026-01-30T07:37:00.000Z",
+        "close": 25258.75
+      }
+    },
+    "levelModifications": [],
+    "paperTrade": true,
+    "exitPrice": 366.5,
+    "exitTime": "14:59:08",
+    "exitReason": "TARGET",
+    "pnl": 5323.499999999998
+  },
+  {
+    "date": "2026-02-02",
+    "time": "09:55:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY2620324750CE",
+    "strike": 24750,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 254.85,
+    "stopLoss": 234.85,
+    "initialStopLoss": 234.85,
+    "target": 294.85,
+    "initialTarget": 294.85,
+    "orderId": "2018178815708143616",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-02T04:20:00.000Z",
+        "open": 24893.95,
+        "high": 24942.55,
+        "low": 24873.4,
+        "close": 24941.8
+      },
+      "boxAtEntry": {
+        "boxHigh": 24884.7,
+        "boxLow": 24726.85
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 234.65,
+    "exitTime": "09:58:06",
+    "exitReason": "SL",
+    "pnl": -2625.9999999999986
+  },
+  {
+    "date": "2026-02-02",
+    "time": "11:20:06",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2620324900PE",
+    "strike": 24900,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 243.75,
+    "stopLoss": 223.75,
+    "initialStopLoss": 223.75,
+    "target": 283.75,
+    "initialTarget": 283.75,
+    "orderId": "2018200206306222080",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-02T05:45:00.000Z",
+        "open": 24720.45,
+        "high": 24724.8,
+        "low": 24704.45,
+        "close": 24710.75
+      },
+      "boxAtEntry": {
+        "boxHigh": 24884.7,
+        "boxLow": 24726.85
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": true,
+      "priceReturnedToBox": true,
+      "returnToBoxCandle": {
+        "date": "2026-02-02T04:30:00.000Z",
+        "close": 24818.95
+      }
+    },
+    "levelModifications": []
+  },
+  {
+    "date": "2026-02-02",
+    "time": "12:17:26",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY2620324700CE",
+    "strike": 24700,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 269.55,
+    "stopLoss": 249.55,
+    "initialStopLoss": 249.55,
+    "target": 309.55,
+    "initialTarget": 309.55,
+    "orderId": "2018214635798306816",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-02T06:45:00.000Z",
+        "open": 24910.65,
+        "high": 24927.3,
+        "low": 24905.8,
+        "close": 24923.95
+      },
+      "boxAtEntry": {
+        "boxHigh": 24884.7,
+        "boxLow": 24726.85
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": true,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": []
+  },
+  {
+    "date": "2026-02-02",
+    "time": "13:00:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY2620324750CE",
+    "strike": 24750,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 246,
+    "stopLoss": 226,
+    "initialStopLoss": 226,
+    "target": 286,
+    "initialTarget": 286,
+    "orderId": "PAPER_1770017400112_1000000",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-02T07:25:00.000Z",
+        "open": 24912.8,
+        "high": 24943.85,
+        "low": 24910.9,
+        "close": 24938.2
+      },
+      "boxAtEntry": {
+        "boxHigh": 24884.7,
+        "boxLow": 24726.85
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": true,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "paperTrade": true,
+    "exitPrice": 225.95,
+    "exitTime": "13:16:24",
+    "exitReason": "SL",
+    "pnl": -2606.5000000000014
+  },
+  {
+    "date": "2026-02-02",
+    "time": "13:30:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY2620324700CE",
+    "strike": 24700,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 232.7,
+    "stopLoss": 212.7,
+    "initialStopLoss": 212.7,
+    "target": 272.7,
+    "initialTarget": 272.7,
+    "orderId": "PAPER_1770019200132_1000000",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-02T07:55:00.000Z",
+        "open": 24873,
+        "high": 24906.8,
+        "low": 24863.3,
+        "close": 24894.55
+      },
+      "boxAtEntry": {
+        "boxHigh": 24884.7,
+        "boxLow": 24726.85
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": true,
+      "priceReturnedToBox": true,
+      "returnToBoxCandle": {
+        "date": "2026-02-02T07:50:00.000Z",
+        "close": 24873.45
+      }
+    },
+    "levelModifications": [],
+    "paperTrade": true,
+    "exitPrice": 212.6,
+    "exitTime": "13:32:11",
+    "exitReason": "SL",
+    "pnl": -2612.999999999999
+  },
+  {
+    "date": "2026-02-03",
+    "time": "09:35:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2620325950PE",
+    "strike": 25950,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 251.65,
+    "stopLoss": 231.65,
+    "initialStopLoss": 231.65,
+    "target": 291.65,
+    "initialTarget": 291.65,
+    "orderId": "2018536170950008832",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-03T04:00:00.000Z",
+        "open": 25757.25,
+        "high": 25757.25,
+        "low": 25755,
+        "close": 25755
+      },
+      "boxAtEntry": {
+        "boxHigh": 26341.2,
+        "boxLow": 25763.9
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 228.6,
+    "exitTime": "09:38:33",
+    "exitReason": "SL",
+    "pnl": -2996.5000000000014
+  },
+  {
+    "date": "2026-02-03",
+    "time": "09:45:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2620325950PE",
+    "strike": 25950,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 265.6,
+    "stopLoss": 245.60000000000002,
+    "initialStopLoss": 245.60000000000002,
+    "target": 305.6,
+    "initialTarget": 305.6,
+    "orderId": "2018538687360442368",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-03T04:10:00.000Z",
+        "open": 25772.8,
+        "high": 25777.5,
+        "low": 25721.25,
+        "close": 25728.35
+      },
+      "boxAtEntry": {
+        "boxHigh": 26341.2,
+        "boxLow": 25763.9
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": true,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 306.95,
+    "exitTime": "09:46:01",
+    "exitReason": "TARGET",
+    "pnl": 5375.499999999995
+  },
+  {
+    "date": "2026-02-04",
+    "time": "10:10:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY2621025600CE",
+    "strike": 25600,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 304.45,
+    "stopLoss": 284.45,
+    "initialStopLoss": 284.45,
+    "target": 344.45,
+    "initialTarget": 344.45,
+    "orderId": "2018907366149365760",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-04T04:35:00.000Z",
+        "open": 25776.15,
+        "high": 25800.05,
+        "low": 25771.3,
+        "close": 25796.55
+      },
+      "boxAtEntry": {
+        "boxHigh": 25788.3,
+        "boxLow": 25563.95
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 283.8,
+    "exitTime": "10:18:59",
+    "exitReason": "SL",
+    "pnl": -2684.4999999999973
+  },
+  {
+    "date": "2026-02-05",
+    "time": "10:35:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2621025850PE",
+    "strike": 25850,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 246.4,
+    "stopLoss": 226.4,
+    "initialStopLoss": 226.4,
+    "target": 286.4,
+    "initialTarget": 286.4,
+    "orderId": "2019276045345136640",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-05T05:00:00.000Z",
+        "open": 25668.9,
+        "high": 25670.85,
+        "low": 25641.2,
+        "close": 25646.2
+      },
+      "boxAtEntry": {
+        "boxHigh": 25757.65,
+        "boxLow": 25666.15
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 236.1,
+    "exitTime": "11:13:00",
+    "exitReason": "SL",
+    "pnl": -1339.0000000000014
+  },
+  {
+    "date": "2026-02-05",
+    "time": "11:20:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2621025850PE",
+    "strike": 25850,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 252.05,
+    "stopLoss": 232.05,
+    "initialStopLoss": 232.05,
+    "target": 292.05,
+    "initialTarget": 292.05,
+    "orderId": "2019287370305675264",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-05T05:45:00.000Z",
+        "open": 25673.65,
+        "high": 25676.9,
+        "low": 25646.85,
+        "close": 25647.8
+      },
+      "boxAtEntry": {
+        "boxHigh": 25757.65,
+        "boxLow": 25666.15
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": true,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 232,
+    "exitTime": "11:39:08",
+    "exitReason": "SL",
+    "pnl": -2606.5000000000014
+  },
+  {
+    "date": "2026-02-05",
+    "time": "11:50:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2621025850PE",
+    "strike": 25850,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 256,
+    "stopLoss": 236,
+    "initialStopLoss": 236,
+    "target": 296,
+    "initialTarget": 296,
+    "orderId": "2019294919822188545",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-05T06:15:00.000Z",
+        "open": 25666.35,
+        "high": 25668.3,
+        "low": 25631.3,
+        "close": 25635.05
+      },
+      "boxAtEntry": {
+        "boxHigh": 25757.65,
+        "boxLow": 25666.15
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": true,
+      "priceReturnedToBox": true,
+      "returnToBoxCandle": {
+        "date": "2026-02-05T06:10:00.000Z",
+        "close": 25666.3
+      }
+    },
+    "levelModifications": []
+  },
+  {
+    "date": "2026-02-10",
+    "time": "14:55:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY2621025750CE",
+    "strike": 25750,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 185.85,
+    "stopLoss": 165.85,
+    "initialStopLoss": 165.85,
+    "target": 225.85,
+    "initialTarget": 225.85,
+    "orderId": "2021153416704729088",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-10T09:20:00.000Z",
+        "open": 25928.7,
+        "high": 25937.4,
+        "low": 25923.7,
+        "close": 25935.45
+      },
+      "boxAtEntry": {
+        "boxHigh": 25934.95,
+        "boxLow": 25870.45
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 183.45,
+    "exitTime": "15:20:00",
+    "exitReason": "EOD",
+    "pnl": -312.00000000000074
+  },
+  {
+    "date": "2026-02-11",
+    "time": "09:40:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2621726150PE",
+    "strike": 26150,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 232.1,
+    "stopLoss": 212.1,
+    "initialStopLoss": 212.1,
+    "target": 272.1,
+    "initialTarget": 272.1,
+    "orderId": "2021436531503308800",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-11T04:05:00.000Z",
+        "open": 25955.15,
+        "high": 25960.75,
+        "low": 25932.5,
+        "close": 25933.3
+      },
+      "boxAtEntry": {
+        "boxHigh": 26009.4,
+        "boxLow": 25942.45
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 211.7,
+    "exitTime": "10:26:40",
+    "exitReason": "SL",
+    "pnl": -2652.000000000001
+  },
+  {
+    "date": "2026-02-11",
+    "time": "11:10:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2621726150PE",
+    "strike": 26150,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 211.55,
+    "stopLoss": 191.55,
+    "initialStopLoss": 191.55,
+    "target": 251.55,
+    "initialTarget": 251.55,
+    "orderId": "2021459180824600576",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-11T05:35:00.000Z",
+        "open": 25966.65,
+        "high": 25971.65,
+        "low": 25938.9,
+        "close": 25941.55
+      },
+      "boxAtEntry": {
+        "boxHigh": 26009.4,
+        "boxLow": 25942.45
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": true,
+      "priceReturnedToBox": true,
+      "returnToBoxCandle": {
+        "date": "2026-02-11T05:00:00.000Z",
+        "close": 25964.2
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 254,
+    "exitTime": "12:42:45",
+    "exitReason": "TARGET",
+    "pnl": 5518.499999999998
+  },
+  {
+    "date": "2026-02-11",
+    "time": "12:45:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2621726100PE",
+    "strike": 26100,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 215.85,
+    "stopLoss": 195.85,
+    "initialStopLoss": 195.85,
+    "target": 255.85,
+    "initialTarget": 255.85,
+    "orderId": "2021483088239960064",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-11T07:10:00.000Z",
+        "open": 25917.05,
+        "high": 25925.35,
+        "low": 25900.2,
+        "close": 25910.1
+      },
+      "boxAtEntry": {
+        "boxHigh": 26009.4,
+        "boxLow": 25942.45
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": true,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 195.55,
+    "exitTime": "13:21:16",
+    "exitReason": "SL",
+    "pnl": -2638.9999999999977
+  },
+  {
+    "date": "2026-02-11",
+    "time": "13:50:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2621726150PE",
+    "strike": 26150,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 229.05,
+    "stopLoss": 209.05,
+    "initialStopLoss": 209.05,
+    "target": 269.05,
+    "initialTarget": 269.05,
+    "orderId": "2021499446159777792",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-11T08:15:00.000Z",
+        "open": 25955.35,
+        "high": 25956.3,
+        "low": 25939,
+        "close": 25939
+      },
+      "boxAtEntry": {
+        "boxHigh": 26009.4,
+        "boxLow": 25942.45
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": true,
+      "priceReturnedToBox": true,
+      "returnToBoxCandle": {
+        "date": "2026-02-11T07:59:00.000Z",
+        "close": 25945.05
+      }
+    },
+    "levelModifications": []
+  },
+  {
+    "date": "2026-02-12",
+    "time": "11:32:18",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2621726000PE",
+    "strike": 26000,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 197.1,
+    "stopLoss": 177.1,
+    "initialStopLoss": 177.1,
+    "target": 237.1,
+    "initialTarget": 237.1,
+    "orderId": "2021827153951236096",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-12T06:00:00.000Z",
+        "open": 25832.3,
+        "high": 25833.9,
+        "low": 25817.05,
+        "close": 25819.35
+      },
+      "boxAtEntry": {
+        "boxHigh": 25906.7,
+        "boxLow": 25831.25
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 174.8,
+    "exitTime": "12:58:01",
+    "exitReason": "SL",
+    "pnl": -2898.9999999999977
+  },
+  {
+    "date": "2026-02-12",
+    "time": "13:50:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2621726000PE",
+    "strike": 26000,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 194.15,
+    "stopLoss": 174.15,
+    "initialStopLoss": 174.15,
+    "target": 234.15,
+    "initialTarget": 234.15,
+    "orderId": "2021861833970851840",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-12T08:15:00.000Z",
+        "open": 25844.85,
+        "high": 25847.35,
+        "low": 25817,
+        "close": 25818.4
+      },
+      "boxAtEntry": {
+        "boxHigh": 25906.7,
+        "boxLow": 25831.25
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": true,
+      "priceReturnedToBox": true,
+      "returnToBoxCandle": {
+        "date": "2026-02-12T07:29:00.000Z",
+        "close": 25853.75
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 349,
+    "exitTime": "09:15:00",
+    "exitReason": "TARGET",
+    "pnl": 20130.5
+  },
+  {
+    "date": "2026-02-13",
+    "time": "09:20:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2621725800PE",
+    "strike": 25800,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 213.05,
+    "stopLoss": 193.05,
+    "initialStopLoss": 193.05,
+    "target": 253.05,
+    "initialTarget": 253.05,
+    "orderId": "2022156274359115776",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-13T03:45:00.000Z",
+        "open": 25605.3,
+        "high": 25617.25,
+        "low": 25576.55,
+        "close": 25596.6
+      },
+      "boxAtEntry": {
+        "boxHigh": 25906.7,
+        "boxLow": 25831.25
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": []
+  },
+  {
+    "date": "2026-02-13",
+    "time": "09:35:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2621725750PE",
+    "strike": 25750,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 211.4,
+    "stopLoss": 191.4,
+    "initialStopLoss": 191.4,
+    "target": 251.4,
+    "initialTarget": 251.4,
+    "orderId": "2022160049870249984",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-13T04:00:00.000Z",
+        "open": 25585.7,
+        "high": 25585.7,
+        "low": 25545.55,
+        "close": 25551
+      },
+      "boxAtEntry": {
+        "boxHigh": 25630.35,
+        "boxLow": 25558.3
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": true,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 201.3,
+    "exitTime": "10:34:24",
+    "exitReason": "SL",
+    "pnl": -1312.9999999999993
+  },
+  {
+    "date": "2026-02-19",
+    "time": "09:35:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY26FEB26000PE",
+    "strike": 26000,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 231.7,
+    "stopLoss": 211.7,
+    "initialStopLoss": 211.7,
+    "target": 271.7,
+    "initialTarget": 271.7,
+    "orderId": "2024334376665391104",
+    "status": "CLOSED",
+    "exitPrice": 256.3,
+    "exitTime": "10:00:24",
+    "exitReason": "SL",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-19T04:00:00.000Z",
+        "open": 25807.95,
+        "high": 25807.95,
+        "low": 25804.05,
+        "close": 25805.35
+      },
+      "boxAtEntry": {
+        "boxHigh": 25885.3,
+        "boxLow": 25811.2
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": []
+  },
+  {
+    "date": "2026-02-20",
+    "time": "10:20:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY26FEB25350CE",
+    "strike": 25350,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 266.25,
+    "stopLoss": 246.25,
+    "initialStopLoss": 246.25,
+    "target": 296.25,
+    "initialTarget": 296.25,
+    "orderId": "2024708088975630336",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-20T04:45:00.000Z",
+        "open": 25479.9,
+        "high": 25542.45,
+        "low": 25479.9,
+        "close": 25536.9
+      },
+      "boxAtEntry": {
+        "boxHigh": 25485.85,
+        "boxLow": 25379.75
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 297.35,
+    "exitTime": "10:30:33",
+    "exitReason": "TARGET",
+    "pnl": 4043.0000000000027
+  },
+  {
+    "date": "2026-02-20",
+    "time": "10:35:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY26FEB25350CE",
+    "strike": 25350,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 302.9,
+    "stopLoss": 282.9,
+    "initialStopLoss": 282.9,
+    "target": 332.9,
+    "initialTarget": 332.9,
+    "orderId": "2024711863769538560",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-20T05:00:00.000Z",
+        "open": 25550.95,
+        "high": 25577.3,
+        "low": 25550.95,
+        "close": 25570.65
+      },
+      "boxAtEntry": {
+        "boxHigh": 25485.85,
+        "boxLow": 25379.75
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": true,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 334.65,
+    "exitTime": "10:41:16",
+    "exitReason": "TARGET",
+    "pnl": 4127.5
+  },
+  {
+    "date": "2026-02-20",
+    "time": "10:45:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY26FEB25400CE",
+    "strike": 25400,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 290.9,
+    "stopLoss": 270.9,
+    "initialStopLoss": 270.9,
+    "target": 320.9,
+    "initialTarget": 320.9,
+    "orderId": "2024714380393881600",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-20T05:10:00.000Z",
+        "open": 25577.35,
+        "high": 25602.45,
+        "low": 25577.05,
+        "close": 25596.5
+      },
+      "boxAtEntry": {
+        "boxHigh": 25485.85,
+        "boxLow": 25379.75
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": true,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 270.2,
+    "exitTime": "10:47:59",
+    "exitReason": "SL",
+    "pnl": -2690.9999999999986
+  },
+  {
+    "date": "2026-02-23",
+    "time": "14:05:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY26FEB25800PE",
+    "strike": 25800,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 207.75,
+    "stopLoss": 187.75,
+    "initialStopLoss": 187.75,
+    "target": 237.75,
+    "initialTarget": 237.75,
+    "orderId": "2025851875831619584",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-23T08:30:00.000Z",
+        "open": 25638.45,
+        "high": 25643,
+        "low": 25609.35,
+        "close": 25623.75
+      },
+      "boxAtEntry": {
+        "boxHigh": 25767.9,
+        "boxLow": 25626.5
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 187.65,
+    "exitTime": "14:18:57",
+    "exitReason": "SL",
+    "pnl": -2612.999999999999
+  },
+  {
+    "date": "2026-02-24",
+    "time": "09:35:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY26FEB25700PE",
+    "strike": 25700,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 205.95,
+    "stopLoss": 185.95,
+    "initialStopLoss": 185.95,
+    "target": 235.95,
+    "initialTarget": 235.95,
+    "orderId": "2026146315838201856",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-24T04:00:00.000Z",
+        "open": 25514.55,
+        "high": 25518.4,
+        "low": 25510.4,
+        "close": 25513.9
+      },
+      "boxAtEntry": {
+        "boxHigh": 25641.8,
+        "boxLow": 25547.15
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 185.6,
+    "exitTime": "09:37:10",
+    "exitReason": "SL",
+    "pnl": -2645.499999999999
+  },
+  {
+    "date": "2026-02-24",
+    "time": "09:40:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY26FEB25700PE",
+    "strike": 25700,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 205.05,
+    "stopLoss": 185.05,
+    "initialStopLoss": 185.05,
+    "target": 235.05,
+    "initialTarget": 235.05,
+    "orderId": "2026147573978406912",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-24T04:05:00.000Z",
+        "open": 25512.8,
+        "high": 25527.45,
+        "low": 25506.85,
+        "close": 25508.15
+      },
+      "boxAtEntry": {
+        "boxHigh": 25641.8,
+        "boxLow": 25547.15
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": true,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 194.1,
+    "exitTime": "09:47:37",
+    "exitReason": "SL",
+    "pnl": -1423.5000000000023
+  },
+  {
+    "date": "2026-02-24",
+    "time": "09:55:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY26FEB25700PE",
+    "strike": 25700,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 197.95,
+    "stopLoss": 177.95,
+    "initialStopLoss": 177.95,
+    "target": 227.95,
+    "initialTarget": 227.95,
+    "orderId": "2026151348772315136",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-24T04:20:00.000Z",
+        "open": 25525.25,
+        "high": 25526.3,
+        "low": 25495.1,
+        "close": 25511.6
+      },
+      "boxAtEntry": {
+        "boxHigh": 25641.8,
+        "boxLow": 25547.15
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": true,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 177.7,
+    "exitTime": "10:08:08",
+    "exitReason": "SL",
+    "pnl": -2632.5
+  },
+  {
+    "date": "2026-02-24",
+    "time": "10:15:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY26FEB25700PE",
+    "strike": 25700,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 223.9,
+    "stopLoss": 203.9,
+    "initialStopLoss": 203.9,
+    "target": 253.9,
+    "initialTarget": 253.9,
+    "orderId": "2026156382264270848",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-02-24T04:40:00.000Z",
+        "open": 25516.25,
+        "high": 25517.55,
+        "low": 25483.8,
+        "close": 25483.8
+      },
+      "boxAtEntry": {
+        "boxHigh": 25641.8,
+        "boxLow": 25547.15
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": true,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 203.45,
+    "exitTime": "10:20:15",
+    "exitReason": "SL",
+    "pnl": -2658.5000000000023
+  },
+  {
+    "date": "2026-03-02",
+    "time": "09:45:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY2630224750CE",
+    "strike": 24750,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 247.3,
+    "stopLoss": 227.3,
+    "initialStopLoss": 227.3,
+    "target": 277.3,
+    "initialTarget": 277.3,
+    "orderId": "2028323159752613888",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-03-02T04:10:00.000Z",
+        "open": 24949.8,
+        "high": 24977.1,
+        "low": 24937.1,
+        "close": 24962.95
+      },
+      "boxAtEntry": {
+        "boxHigh": 24958.8,
+        "boxLow": 24659.25
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 226.25,
+    "exitTime": "09:49:58",
+    "exitReason": "SL",
+    "pnl": -2736.5000000000014
+  },
+  {
+    "date": "2026-06-25",
+    "time": "10:15:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY26JUN24000CE",
+    "strike": 24000,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 239.25,
+    "stopLoss": 219.25,
+    "initialStopLoss": 219.25,
+    "target": 279.25,
+    "initialTarget": 279.25,
+    "orderId": "2070005313657937920",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-06-25T04:40:00.000Z",
+        "open": 24166.65,
+        "high": 24185.85,
+        "low": 24160.3,
+        "close": 24184.4
+      },
+      "boxAtEntry": {
+        "boxHigh": 24169.7,
+        "boxLow": 24107.8
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 154.5,
+    "exitTime": "10:42:08",
+    "exitReason": "SL",
+    "pnl": -11017.5
+  },
+  {
+    "date": "2026-06-30",
+    "time": "09:40:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY26JUN24050PE",
+    "strike": 24050,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 186.1,
+    "stopLoss": 166.1,
+    "initialStopLoss": 166.1,
+    "target": 226.1,
+    "initialTarget": 226.1,
+    "orderId": "2071808444863651840",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-06-30T04:05:00.000Z",
+        "open": 23885.3,
+        "high": 23889.55,
+        "low": 23874.5,
+        "close": 23874.75
+      },
+      "boxAtEntry": {
+        "boxHigh": 24035.55,
+        "boxLow": 23890.8
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 164.6,
+    "exitTime": "10:02:26",
+    "exitReason": "SL",
+    "pnl": -2795
+  },
+  {
+    "date": "2026-07-01",
+    "time": "09:40:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY2670723750CE",
+    "strike": 23750,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 298.5,
+    "stopLoss": 278.5,
+    "initialStopLoss": 278.5,
+    "target": 338.5,
+    "initialTarget": 338.5,
+    "orderId": "2072170832439844864",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-07-01T04:05:00.000Z",
+        "open": 23920.1,
+        "high": 23945.25,
+        "low": 23917.4,
+        "close": 23939.15
+      },
+      "boxAtEntry": {
+        "boxHigh": 23934.9,
+        "boxLow": 23895.1
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 339,
+    "exitTime": "10:16:05",
+    "exitReason": "TARGET",
+    "pnl": 5265
+  },
+  {
+    "date": "2026-07-06",
+    "time": "09:50:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY2670724200CE",
+    "strike": 24200,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 199.45,
+    "stopLoss": 179.45,
+    "initialStopLoss": 179.45,
+    "target": 239.45,
+    "initialTarget": 239.45,
+    "orderId": "2073985288601903104",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-07-06T04:15:00.000Z",
+        "open": 24368.75,
+        "high": 24393.7,
+        "low": 24366,
+        "close": 24381.7
+      },
+      "boxAtEntry": {
+        "boxHigh": 24360.15,
+        "boxLow": 24287.1
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 249.85,
+    "exitTime": "09:25:10",
+    "exitReason": "TARGET",
+    "pnl": 6552.000000000001
+  },
+  {
+    "date": "2026-07-07",
+    "time": "11:40:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY2670724300CE",
+    "strike": 24300,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 208.4,
+    "stopLoss": 188.4,
+    "initialStopLoss": 188.4,
+    "target": 248.4,
+    "initialTarget": 248.4,
+    "orderId": "2074375358777434112",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-07-07T06:05:00.000Z",
+        "open": 24514.65,
+        "high": 24518.55,
+        "low": 24510.15,
+        "close": 24516
+      },
+      "boxAtEntry": {
+        "boxHigh": 24488.45,
+        "boxLow": 24427
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 188.35,
+    "exitTime": "12:16:53",
+    "exitReason": "SL",
+    "pnl": -2606.5000000000014
+  },
+  {
+    "date": "2026-07-07",
+    "time": "12:25:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY2670724300CE",
+    "strike": 24300,
+    "optionType": "CE",
+    "quantity": 130,
+    "entryPrice": 190.05,
+    "stopLoss": 170.05,
+    "initialStopLoss": 170.05,
+    "target": 230.05,
+    "initialTarget": 230.05,
+    "orderId": "2074386683553423361",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-07-07T06:50:00.000Z",
+        "open": 24486.65,
+        "high": 24502.9,
+        "low": 24486.65,
+        "close": 24493.65
+      },
+      "boxAtEntry": {
+        "boxHigh": 24488.45,
+        "boxLow": 24427
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": true,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 170,
+    "exitTime": "12:32:07",
+    "exitReason": "SL",
+    "pnl": -2606.5000000000014
+  },
+  {
+    "date": "2026-07-08",
+    "time": "09:35:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2671424400PE",
+    "strike": 24400,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 273,
+    "stopLoss": 253,
+    "initialStopLoss": 253,
+    "target": 313,
+    "initialTarget": 313,
+    "orderId": "2074706290734571520",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-07-08T04:00:00.000Z",
+        "open": 24221.1,
+        "high": 24233.95,
+        "low": 24215.45,
+        "close": 24219.75
+      },
+      "boxAtEntry": {
+        "boxHigh": 24295.25,
+        "boxLow": 24229.9
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 253,
+    "exitTime": "09:48:42",
+    "exitReason": "SL",
+    "pnl": -2600
+  },
+  {
+    "date": "2026-07-08",
+    "time": "10:25:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2671424450PE",
+    "strike": 24450,
+    "optionType": "PE",
+    "quantity": 65,
+    "entryPrice": 300,
+    "stopLoss": 280,
+    "initialStopLoss": 280,
+    "target": 340,
+    "initialTarget": 340,
+    "orderId": "2074718872631549952",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-07-08T04:50:00.000Z",
+        "open": 24250.45,
+        "high": 24251.5,
+        "low": 24223.15,
+        "close": 24225.4
+      },
+      "boxAtEntry": {
+        "boxHigh": 24295.25,
+        "boxLow": 24229.9
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": true,
+      "priceReturnedToBox": true,
+      "returnToBoxCandle": {
+        "date": "2026-07-08T04:20:00.000Z",
+        "close": 24251.75
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 280,
+    "exitTime": "10:28:58",
+    "exitReason": "SL",
+    "pnl": -1300
+  },
+  {
+    "date": "2026-07-08",
+    "time": "12:10:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2671424450PE",
+    "strike": 24450,
+    "optionType": "PE",
+    "quantity": 65,
+    "entryPrice": 290.5,
+    "stopLoss": 270.5,
+    "initialStopLoss": 270.5,
+    "target": 330.5,
+    "initialTarget": 330.5,
+    "orderId": "2074745296880967680",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-07-08T06:35:00.000Z",
+        "open": 24234.75,
+        "high": 24243.9,
+        "low": 24225.6,
+        "close": 24227.5
+      },
+      "boxAtEntry": {
+        "boxHigh": 24295.25,
+        "boxLow": 24229.9
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": true,
+      "priceReturnedToBox": true,
+      "returnToBoxCandle": {
+        "date": "2026-07-08T05:00:00.000Z",
+        "close": 24256.85
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 280.05,
+    "exitTime": "13:05:10",
+    "exitReason": "SL",
+    "pnl": -679.2499999999993
+  },
+  {
+    "date": "2026-07-08",
+    "time": "13:10:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2671424400PE",
+    "strike": 24400,
+    "optionType": "PE",
+    "quantity": 65,
+    "entryPrice": 250.95,
+    "stopLoss": 230.95,
+    "initialStopLoss": 230.95,
+    "target": 290.95,
+    "initialTarget": 290.95,
+    "orderId": "2074760396396339200",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-07-08T07:35:00.000Z",
+        "open": 24225.3,
+        "high": 24235.8,
+        "low": 24216.2,
+        "close": 24219.55
+      },
+      "boxAtEntry": {
+        "boxHigh": 24295.25,
+        "boxLow": 24229.9
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": true,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 291.85,
+    "exitTime": "13:46:53",
+    "exitReason": "TARGET",
+    "pnl": 2658.5000000000023
+  },
+  {
+    "date": "2026-07-08",
+    "time": "13:50:02",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2671424300PE",
+    "strike": 24300,
+    "optionType": "PE",
+    "quantity": 65,
+    "entryPrice": 275.65,
+    "stopLoss": 255.64999999999998,
+    "initialStopLoss": 255.64999999999998,
+    "target": 315.65,
+    "initialTarget": 315.65,
+    "orderId": "2074770466484035584",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-07-08T08:15:00.000Z",
+        "open": 24205.5,
+        "high": 24209.05,
+        "low": 24106.95,
+        "close": 24119.4
+      },
+      "boxAtEntry": {
+        "boxHigh": 24295.25,
+        "boxLow": 24229.9
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": true,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 316.35,
+    "exitTime": "13:54:04",
+    "exitReason": "TARGET",
+    "pnl": 2645.5000000000027
+  },
+  {
+    "date": "2026-07-08",
+    "time": "13:55:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2671424250PE",
+    "strike": 24250,
+    "optionType": "PE",
+    "quantity": 65,
+    "entryPrice": 284.75,
+    "stopLoss": 264.75,
+    "initialStopLoss": 264.75,
+    "target": 324.75,
+    "initialTarget": 324.75,
+    "orderId": "2074771721189105664",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-07-08T08:20:00.000Z",
+        "open": 24119.65,
+        "high": 24121.75,
+        "low": 24057.45,
+        "close": 24064.55
+      },
+      "boxAtEntry": {
+        "boxHigh": 24295.25,
+        "boxLow": 24229.9
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": true,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 325,
+    "exitTime": "13:59:22",
+    "exitReason": "TARGET",
+    "pnl": 2616.25
+  },
+  {
+    "date": "2026-07-16",
+    "time": "11:00:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY2672123950CE",
+    "strike": 23950,
+    "optionType": "CE",
+    "quantity": 65,
+    "entryPrice": 292.45,
+    "stopLoss": 272.45,
+    "initialStopLoss": 272.45,
+    "target": 332.45,
+    "initialTarget": 332.45,
+    "orderId": "2077626783221456897",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-07-16T05:25:00.000Z",
+        "open": 24151.3,
+        "high": 24169.2,
+        "low": 24150.9,
+        "close": 24167.9
+      },
+      "boxAtEntry": {
+        "boxHigh": 24167.4,
+        "boxLow": 24117.55
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 271.85,
+    "exitTime": "11:17:07",
+    "exitReason": "SL",
+    "pnl": -1338.9999999999977
+  },
+  {
+    "date": "2026-07-16",
+    "time": "13:20:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2672124300PE",
+    "strike": 24300,
+    "optionType": "PE",
+    "quantity": 65,
+    "entryPrice": 238.15,
+    "stopLoss": 218.15,
+    "initialStopLoss": 218.15,
+    "target": 278.15,
+    "initialTarget": 278.15,
+    "orderId": "2077662015706406912",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-07-16T07:45:00.000Z",
+        "open": 24120.55,
+        "high": 24121.8,
+        "low": 24108.55,
+        "close": 24115.65
+      },
+      "boxAtEntry": {
+        "boxHigh": 24167.4,
+        "boxLow": 24117.55
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": true,
+      "priceReturnedToBox": true,
+      "returnToBoxCandle": {
+        "date": "2026-07-16T05:50:00.000Z",
+        "close": 24151.85
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 278.5,
+    "exitTime": "13:31:41",
+    "exitReason": "TARGET",
+    "pnl": 2622.7499999999995
+  },
+  {
+    "date": "2026-07-16",
+    "time": "13:35:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY2672124300PE",
+    "strike": 24300,
+    "optionType": "PE",
+    "quantity": 65,
+    "entryPrice": 269.6,
+    "stopLoss": 249.60000000000002,
+    "initialStopLoss": 249.60000000000002,
+    "target": 309.6,
+    "initialTarget": 309.6,
+    "orderId": "2077665790634532864",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-07-16T08:00:00.000Z",
+        "open": 24105.7,
+        "high": 24107.4,
+        "low": 24079.85,
+        "close": 24090.7
+      },
+      "boxAtEntry": {
+        "boxHigh": 24167.4,
+        "boxLow": 24117.55
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": true,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 170.3,
+    "exitTime": "10:59:05",
+    "exitReason": "SL",
+    "pnl": -6454.500000000001
+  },
+  {
+    "date": "2026-07-17",
+    "time": "11:00:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY2672124050CE",
+    "strike": 24050,
+    "optionType": "CE",
+    "quantity": 65,
+    "entryPrice": 239.35,
+    "stopLoss": 219.35,
+    "initialStopLoss": 219.35,
+    "target": 279.35,
+    "initialTarget": 279.35,
+    "orderId": "2077989171242246144",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-07-17T05:25:00.000Z",
+        "open": 24256.15,
+        "high": 24258.7,
+        "low": 24254.1,
+        "close": 24256.7
+      },
+      "boxAtEntry": {
+        "boxHigh": 24211.7,
+        "boxLow": 24099.05
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 219.35,
+    "exitTime": "11:18:56",
+    "exitReason": "SL",
+    "pnl": -1300
+  },
+  {
+    "date": "2026-07-17",
+    "time": "11:20:01",
+    "signal": "BULL",
+    "tradingsymbol": "NIFTY2672124050CE",
+    "strike": 24050,
+    "optionType": "CE",
+    "quantity": 65,
+    "entryPrice": 224.2,
+    "stopLoss": 204.2,
+    "initialStopLoss": 204.2,
+    "target": 264.2,
+    "initialTarget": 264.2,
+    "orderId": "2077994204436406272",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-07-17T05:45:00.000Z",
+        "open": 24235.45,
+        "high": 24243.35,
+        "low": 24232.65,
+        "close": 24240.3
+      },
+      "boxAtEntry": {
+        "boxHigh": 24211.7,
+        "boxLow": 24099.05
+      },
+      "breakoutDirection": "ABOVE",
+      "isReEntry": true,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 180.35,
+    "exitTime": "10:41:20",
+    "exitReason": "SL",
+    "pnl": -2850.2499999999995
+  },
+  {
+    "date": "2026-07-22",
+    "time": "09:50:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY26JUL24200PE",
+    "strike": 24200,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 270.3,
+    "stopLoss": 250.3,
+    "initialStopLoss": 250.3,
+    "target": 310.3,
+    "initialTarget": 310.3,
+    "orderId": "2079783494355034112",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-07-22T04:15:00.000Z",
+        "open": 24027,
+        "high": 24031.3,
+        "low": 24012.3,
+        "close": 24014.7
+      },
+      "boxAtEntry": {
+        "boxHigh": 24166.3,
+        "boxLow": 24046.95
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": false,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 250.2,
+    "exitTime": "10:07:44",
+    "exitReason": "SL",
+    "pnl": -2613.0000000000027
+  },
+  {
+    "date": "2026-07-22",
+    "time": "10:15:01",
+    "signal": "BEAR",
+    "tradingsymbol": "NIFTY26JUL24250PE",
+    "strike": 24250,
+    "optionType": "PE",
+    "quantity": 130,
+    "entryPrice": 293.3,
+    "stopLoss": 273.3,
+    "initialStopLoss": 273.3,
+    "target": 333.3,
+    "initialTarget": 333.3,
+    "orderId": "2079789785848782848",
+    "status": "CLOSED",
+    "tradeReason": {
+      "breakoutCandle": {
+        "date": "2026-07-22T04:40:00.000Z",
+        "open": 24051.25,
+        "high": 24051.4,
+        "low": 24030.85,
+        "close": 24033
+      },
+      "boxAtEntry": {
+        "boxHigh": 24166.3,
+        "boxLow": 24046.95
+      },
+      "breakoutDirection": "BELOW",
+      "isReEntry": true,
+      "priceReturnedToBox": false,
+      "returnToBoxCandle": {
+        "date": "",
+        "close": 0
+      }
+    },
+    "levelModifications": [],
+    "exitPrice": 334,
+    "exitTime": "10:26:00",
+    "exitReason": "TARGET",
+    "pnl": 5290.999999999998
+  }
+]

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Logs — NIFTY Breakout Bot</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0f;
+      --card: #0f0f18;
+      --border: #1a1a2e;
+      --text: #e0e0e0;
+      --muted: #666;
+      --dim: #444;
+      --green: #00ff9d;
+      --red: #ff6b6b;
+      --yellow: #ffd166;
+      --blue: #6ba6ff;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'JetBrains Mono', monospace;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon { font-size: 22px; color: var(--green); }
+
+    .logo-text {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: #fff;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--dim);
+    }
+    .dot.live { background: var(--green); box-shadow: 0 0 8px var(--green); }
+    .dot.down { background: var(--red); box-shadow: 0 0 8px var(--red); }
+
+    .toolbar {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .toolbar input[type="text"] {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 12px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      min-width: 220px;
+    }
+
+    .toolbar button {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 12px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .toolbar button:hover { border-color: var(--green); color: var(--green); }
+    .toolbar button.active { border-color: var(--green); color: var(--green); }
+
+    .toolbar label {
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    #console {
+      flex: 1;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      overflow-y: auto;
+      font-size: 12.5px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      word-break: break-word;
+      min-height: 60vh;
+    }
+
+    .line { display: flex; gap: 10px; }
+    .line .ts { color: var(--dim); flex-shrink: 0; }
+    .line .lvl { flex-shrink: 0; width: 46px; font-weight: 600; }
+    .line .msg { flex: 1; }
+
+    .lvl-log { color: var(--text); }
+    .lvl-info { color: var(--blue); }
+    .lvl-warn { color: var(--yellow); }
+    .lvl-error { color: var(--red); }
+
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">
+      <span class="logo-icon">▣</span>
+      <span class="logo-text">LIVE LOGS</span>
+    </div>
+    <div class="status">
+      <span class="dot" id="statusDot"></span>
+      <span id="statusText">connecting…</span>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <input type="text" id="filterBox" placeholder="filter (substring)…">
+    <button id="lvlAll" class="active">all</button>
+    <button id="lvlWarn">warn</button>
+    <button id="lvlError">error</button>
+    <label><input type="checkbox" id="autoscroll" checked> autoscroll</label>
+    <button id="clearBtn">clear</button>
+  </div>
+
+  <div id="console"></div>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const token = params.get('token') || '';
+    const consoleEl = document.getElementById('console');
+    const statusDot = document.getElementById('statusDot');
+    const statusText = document.getElementById('statusText');
+    const filterBox = document.getElementById('filterBox');
+    const autoscroll = document.getElementById('autoscroll');
+    const clearBtn = document.getElementById('clearBtn');
+    const lvlButtons = { all: document.getElementById('lvlAll'), warn: document.getElementById('lvlWarn'), error: document.getElementById('lvlError') };
+
+    let activeLevel = 'all';
+    let filterText = '';
+    const allLines = [];
+
+    function setLevel(level) {
+      activeLevel = level;
+      Object.entries(lvlButtons).forEach(([k, el]) => el.classList.toggle('active', k === level));
+      render();
+    }
+    lvlButtons.all.onclick = () => setLevel('all');
+    lvlButtons.warn.onclick = () => setLevel('warn');
+    lvlButtons.error.onclick = () => setLevel('error');
+
+    filterBox.oninput = () => { filterText = filterBox.value.toLowerCase(); render(); };
+    clearBtn.onclick = () => { allLines.length = 0; render(); };
+
+    function matches(entry) {
+      if (activeLevel === 'warn' && entry.level !== 'warn') return false;
+      if (activeLevel === 'error' && entry.level !== 'error') return false;
+      if (filterText && !entry.text.toLowerCase().includes(filterText)) return false;
+      return true;
+    }
+
+    function lineHTML(entry) {
+      const time = entry.ts.slice(11, 19);
+      const escaped = entry.text.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+      return `<div class="line"><span class="ts">${time}</span><span class="lvl lvl-${entry.level}">${entry.level}</span><span class="msg">${escaped}</span></div>`;
+    }
+
+    function render() {
+      consoleEl.innerHTML = allLines.filter(matches).map(lineHTML).join('');
+      if (autoscroll.checked) consoleEl.scrollTop = consoleEl.scrollHeight;
+    }
+
+    function appendEntry(entry) {
+      allLines.push(entry);
+      if (allLines.length > 2000) allLines.shift();
+      if (matches(entry)) {
+        consoleEl.insertAdjacentHTML('beforeend', lineHTML(entry));
+        if (autoscroll.checked) consoleEl.scrollTop = consoleEl.scrollHeight;
+      }
+    }
+
+    const es = new EventSource(`/logs/stream?token=${encodeURIComponent(token)}`);
+    es.onopen = () => {
+      statusDot.className = 'dot live';
+      statusText.textContent = 'live';
+    };
+    es.onerror = () => {
+      statusDot.className = 'dot down';
+      statusText.textContent = 'disconnected — retrying…';
+    };
+    es.onmessage = (ev) => {
+      try {
+        appendEntry(JSON.parse(ev.data));
+      } catch (e) {}
+    };
+  </script>
+</body>
+</html>

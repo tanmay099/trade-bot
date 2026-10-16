@@ -1,0 +1,145 @@
+//@version=6
+strategy("NIFTY Box Breakout", overlay=true, initial_capital=500000, default_qty_type=strategy.fixed, default_qty_value=1, commission_type=strategy.commission.percent, commission_value=0.05, calc_on_every_tick=false)
+
+// Inputs
+i_sl          = input.float(20, "Stop-Loss (pts)",        minval=1)
+i_target      = input.float(30, "Target (pts)",           minval=1)
+i_margin      = input.float(0,  "Box Margin (pts)",       minval=0)
+i_trailProfit = input.float(20, "Trail SL Trigger (pts)", minval=1)
+i_trailStep   = input.float(10, "Trail SL Step (pts)",    minval=1)
+
+// User-Defined Types (v6)
+type BoxState
+    float high    = na
+    float low     = na
+    float accHigh = na
+    float accLow  = na
+    bool  ready   = false
+
+type TradeState
+    bool  active   = false
+    bool  hadToday = false
+    bool  retToBox = false
+    float sl       = na
+    float tgt      = na
+    bool  slDone   = false
+
+var BoxState   bx    = BoxState.new()
+var TradeState trade = TradeState.new()
+
+var line lineHigh  = na
+var line lineLow   = na
+var label lblHigh  = na
+var label lblLow   = na
+
+// Time (minutes since midnight)
+nowMin   = hour * 60 + minute
+inBox    = nowMin >= 555 and nowMin < 570
+postBox  = nowMin >= 570
+preClose = nowMin < 920
+
+// Daily Reset
+if ta.change(dayofmonth) != 0
+    bx.high    := na
+    bx.low     := na
+    bx.accHigh := na
+    bx.accLow  := na
+    bx.ready   := false
+    trade.active   := false
+    trade.hadToday := false
+    trade.retToBox := false
+    trade.sl       := na
+    trade.tgt      := na
+    trade.slDone   := false
+    line.delete(lineHigh)
+    line.delete(lineLow)
+    label.delete(lblHigh)
+    label.delete(lblLow)
+    strategy.close_all()
+
+// Box Formation 09:15-09:30
+if inBox
+    bx.accHigh := na(bx.accHigh) ? high : math.max(bx.accHigh, high)
+    bx.accLow  := na(bx.accLow)  ? low  : math.min(bx.accLow,  low)
+
+// Latch box on first bar after 09:30 and draw level lines
+if postBox and not postBox[1] and not na(bx.accHigh)
+    bx.high  := bx.accHigh
+    bx.low   := bx.accLow
+    bx.ready := true
+    line.delete(lineHigh)
+    line.delete(lineLow)
+    label.delete(lblHigh)
+    label.delete(lblLow)
+    lineHigh := line.new(bar_index, bx.accHigh, bar_index + 1, bx.accHigh, extend=extend.right, color=color.green, width=2, style=line.style_dashed)
+    lineLow  := line.new(bar_index, bx.accLow,  bar_index + 1, bx.accLow,  extend=extend.right, color=color.red,   width=2, style=line.style_dashed)
+    lblHigh  := label.new(bar_index, bx.accHigh, "Box H: " + str.tostring(bx.accHigh, "#.00"), xloc=xloc.bar_index, yloc=yloc.price, color=color.new(color.green, 70), textcolor=color.white, style=label.style_label_right, size=size.small)
+    lblLow   := label.new(bar_index, bx.accLow,  "Box L: " + str.tostring(bx.accLow,  "#.00"), xloc=xloc.bar_index, yloc=yloc.price, color=color.new(color.red,   70), textcolor=color.white, style=label.style_label_right, size=size.small)
+
+// Track price returning inside box while flat (re-entry rule)
+if bx.ready and not trade.active
+    if close >= bx.low and close <= bx.high
+        trade.retToBox := true
+
+// Signals
+bullSig = bx.ready and postBox and preClose and not trade.active and close > (bx.high + i_margin) and close > open
+bearSig = bx.ready and postBox and preClose and not trade.active and close < (bx.low  - i_margin) and close < open
+
+canEnter = not trade.hadToday or trade.retToBox
+goLong   = bullSig and canEnter
+goShort  = bearSig and canEnter
+
+// Entries
+if goLong
+    strategy.entry("L", strategy.long)
+    trade.sl       := close - i_sl
+    trade.tgt      := close + i_target
+    trade.active   := true
+    trade.hadToday := true
+    trade.retToBox := false
+    trade.slDone   := false
+
+if goShort
+    strategy.entry("S", strategy.short)
+    trade.sl       := close + i_sl
+    trade.tgt      := close - i_target
+    trade.active   := true
+    trade.hadToday := true
+    trade.retToBox := false
+    trade.slDone   := false
+
+// Trailing SL - fires once when profit >= threshold
+if trade.active and not trade.slDone
+    avg = strategy.position_avg_price
+    if strategy.position_size > 0 and close - avg >= i_trailProfit
+        trade.sl     := trade.sl + i_trailStep
+        trade.slDone := true
+    if strategy.position_size < 0 and avg - close >= i_trailProfit
+        trade.sl     := trade.sl - i_trailStep
+        trade.slDone := true
+
+// Exits
+if strategy.position_size > 0 and not na(trade.sl) and not na(trade.tgt)
+    strategy.exit("LX", "L", stop=trade.sl, limit=trade.tgt)
+
+if strategy.position_size < 0 and not na(trade.sl) and not na(trade.tgt)
+    strategy.exit("SX", "S", stop=trade.sl, limit=trade.tgt)
+
+if nowMin >= 920
+    strategy.close_all()
+
+if strategy.position_size == 0
+    trade.active := false
+
+// Plots
+pH = plot(bx.ready ? bx.high : na, "Box High", color.green, 2)
+pL = plot(bx.ready ? bx.low  : na, "Box Low",  color.red,   2)
+fill(pH, pL, color.new(color.gray, 90))
+
+plot(trade.active and not na(trade.sl)  ? trade.sl  : na, "SL",  color.orange, 1, plot.style_linebr)
+plot(trade.active and not na(trade.tgt) ? trade.tgt : na, "Tgt", color.teal,   1, plot.style_linebr)
+
+plotshape(goLong,  "Buy",  shape.triangleup,   location.belowbar, color.lime, size=size.small)
+plotshape(goShort, "Sell", shape.triangledown,  location.abovebar, color.red,  size=size.small)
+
+bgcolor(inBox ? color.new(color.blue, 90) : na)
